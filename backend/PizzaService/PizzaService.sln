@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaService", "PizzaService\PizzaService.csproj", "{AB5A235B-983D-41D0-8ED9-D49134C35C29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaService", "PizzaService\PizzaService.csproj", "{AB5A235B-983D-41D0-8ED9-D49134C35C29}"
 	ProjectSection(ProjectDependencies) = postProject
 		{40F19411-1EED-451A-AD00-F0DAC6A551C5} = {40F19411-1EED-451A-AD00-F0DAC6A551C5}
 		{65FB6D23-A18E-453F-AB1F-7527BB190285} = {65FB6D23-A18E-453F-AB1F-7527BB190285}
 		{F65DA3EB-EBCB-47FE-85A0-4ED39EF71D63} = {F65DA3EB-EBCB-47FE-85A0-4ED39EF71D63}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{65FB6D23-A18E-453F-AB1F-7527BB190285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{65FB6D23-A18E-453F-AB1F-7527BB190285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{F65DA3EB-EBCB-47FE-85A0-4ED39EF71D63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{F65DA3EB-EBCB-47FE-85A0-4ED39EF71D63}"
 	ProjectSection(ProjectDependencies) = postProject
 		{65FB6D23-A18E-453F-AB1F-7527BB190285} = {65FB6D23-A18E-453F-AB1F-7527BB190285}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{40F19411-1EED-451A-AD00-F0DAC6A551C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{40F19411-1EED-451A-AD00-F0DAC6A551C5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{65FB6D23-A18E-453F-AB1F-7527BB190285} = {65FB6D23-A18E-453F-AB1F-7527BB190285}
 		{F65DA3EB-EBCB-47FE-85A0-4ED39EF71D63} = {F65DA3EB-EBCB-47FE-85A0-4ED39EF71D63}
