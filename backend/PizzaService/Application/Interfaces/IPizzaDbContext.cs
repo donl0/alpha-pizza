@@ -10,6 +10,7 @@ namespace Application.Interfaces
         DbSet<Product> Products { get; set; }
         DbSet<SizeCost> SizeCosts { get; set; }
         DbSet<Topping> Toppings { get; set; }
+        DbSet<PizzaPiecesImages> PizzaPiecesImages { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
