@@ -84,10 +84,20 @@ namespace PizzaService.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Guid>> Delete(Guid id)
         {
-            Pizza pizza = await _context.Pizzas.FirstOrDefaultAsync(p => p.Id == id);
+            Pizza pizza = await _context.Pizzas.Include(p => p.SizeCosts).Include(p => p.ConsistOf).FirstOrDefaultAsync(p => p.Id == id);
 
             if (pizza != null)
             {
+                foreach (var item in pizza.ConsistOf)
+                {
+                    _context.Products.Remove(item);
+                }
+
+                foreach (var item in pizza.SizeCosts)
+                {
+                    _context.SizeCosts.Remove(item);
+                }
+
                 _context.Pizzas.Remove(pizza);
                 await _context.SaveChangesAsync(_token);
 
