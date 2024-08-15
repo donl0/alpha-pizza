@@ -30,7 +30,7 @@
 }
 
 .textContainer__text{
-
+    color:  var(--font-header-colour-default);
     margin-left: 15px;
     margin-top: auto;
     margin-bottom: auto;
@@ -41,10 +41,14 @@
 }
 
 .textContainer__text_active{
+    color:  var(--font-header-colour-chosen);
+
     font-size: 45px;
 }
 
 .textContainer__text:hover{
+    color:  var(--font-header-colour-chosen);
+
     font-size: 45px;
 
 }

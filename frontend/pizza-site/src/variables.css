@@ -1,5 +1,8 @@
 :root {
     --primary-color: #EB005E;
+    --font-header-colour-default: #1d1d1d;
+    --font-header-colour-chosen: #000000;
+
 }
 
 @font-face {
