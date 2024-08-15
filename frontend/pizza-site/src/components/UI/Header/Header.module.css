@@ -1,0 +1,54 @@
+@import '../../../variables.css';
+
+.header{
+    background-color: var(--primary-color);
+    height: 85px;
+    display: flex;
+
+}
+
+.textContainer{
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+.headerImage{
+    height: 113px;
+    transition: height 0.1s;
+}
+
+.headerImage:hover{
+    transform: rotate(-1deg);
+
+    height: 120px;
+}
+
+.headerImage.active{
+    transform: rotate(-1deg);
+    height: 120px;
+}
+
+.textContainer__text{
+
+    margin-left: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-family:'Imbue';
+    font-size: 40px;
+    text-wrap:nowrap;
+    transition: font-size 0.1s;
+}
+
+.textContainer__text.active{
+    font-size: 45px;
+}
+
+.textContainer__text:hover{
+    font-size: 45px;
+
+}
+
+.text{
+
+}
