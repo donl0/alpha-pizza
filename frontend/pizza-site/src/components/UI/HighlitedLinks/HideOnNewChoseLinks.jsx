@@ -21,17 +21,24 @@ const HideOnNewChoseLinks = ({linkInscriptionDictionary, additionalObjects, acti
         }
     };
 
+    function getActiveLinksAdditionalComopnent(link){
+        return `${additionalObjects[link]["baseClass"]} ${activeLink === link ? additionalObjects[link]["activeClass"] : ''}`;
+    }
+
+    function getActiveDefaultLinks(link){
+        return `${defaultClass} ${activeLink === link ? activeClass : ''}`;
+    }
+
     return (
     <HighlitedLinks 
         linkInscriptionDictionary={linkInscriptionDictionary} 
         additionalObjects={additionalObjects} 
-        activeClass={activeClass}
-        defaultClass={defaultClass} 
         containerClass={containerClass}
-        activeLink={activeLink}
         handleLinkClick={handleLinkClick}
         handleLinkEnter={handleLinkEnter}
-        handleLinkOver={handleLinkOver}/>)
+        handleLinkOver={handleLinkOver}
+        getActiveLinksAdditionalComopnent={getActiveLinksAdditionalComopnent}
+        getActiveDefaultLinks={getActiveDefaultLinks}/>)
 }
 
 export default HideOnNewChoseLinks;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 
-const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeClass, defaultClass, containerClass, activeLink, handleLinkClick, handleLinkEnter, handleLinkOver}) =>{
+const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects,  containerClass, handleLinkClick, handleLinkEnter, handleLinkOver, getActiveLinksAdditionalComopnent, getActiveDefaultLinks}) =>{
     return (
         <div className={containerClass}>
             {Object.keys(linkInscriptionDictionary).map( (link) => {
@@ -12,7 +12,7 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeCla
                         <Link 
                             key={link}
                             to={link} 
-                            className={`${additionalObjects[link]["baseClass"]} ${activeLink === link ? additionalObjects[link]["activeClass"] : ''}`}
+                            className={getActiveLinksAdditionalComopnent(link)}
                             onClick={() => handleLinkClick(link)}
                             onMouseEnter={() => handleLinkEnter(link)}
                             onMouseOut={() => handleLinkOver(link)}
@@ -26,7 +26,7 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeCla
                         <Link 
                             key={link}
                             to={link}
-                            className={`${defaultClass} ${activeLink === link ? activeClass : ''}`}
+                            className={getActiveDefaultLinks(link)}
                             onClick={() => handleLinkClick(link)}
                             onMouseEnter={() => handleLinkEnter(link)}
                             onMouseOut={() => handleLinkOver(link)}
