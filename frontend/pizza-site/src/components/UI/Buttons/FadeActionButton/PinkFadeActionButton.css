@@ -1,0 +1,21 @@
+@import '../../../../variables.css';
+
+button>p{
+    font-family: 'Kantumruy';
+    font-weight: 600;
+    color: white;
+    font-size: 22px;
+}
+
+button{
+    background-color: var(--primary-color);
+    width: 160px;
+    height: 44px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.1s;
+}
+
+button:hover{
+    background-color: #f1327e;
+}
