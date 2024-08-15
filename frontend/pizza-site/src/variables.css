@@ -1,0 +1,8 @@
+:root {
+    --primary-color: #EB005E;
+}
+
+@font-face {
+    font-family: 'Imbue';
+    src: url('../public/fonts/Imbue.ttf') format('truetype');
+}
