@@ -7,5 +7,11 @@
 
 @font-face {
     font-family: 'Imbue';
-    src: url('../public/fonts/Imbue.ttf') format('truetype');
+    src: url('../public/fonts/Imbue.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'Kantumruy';
+    src: url('../public/fonts/KantumruyPro-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 700;
 }
