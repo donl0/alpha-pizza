@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 let previousActiveLink = ""
 
-const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects}) =>{
+const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeClass, defaultClass, containerClass}) =>{
     const [activeLink, setActiveLink] = useState(null);
 
     const handleLinkClick = (link) => {
@@ -21,10 +21,10 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects}) =>{
         }
     };
 
-    const active_state = "active";
+    const active_state = activeClass;
 
     return (
-        <div className='container'>
+        <div className={containerClass}>
             {Object.keys(linkInscriptionDictionary).map( (link) => {
                 if (additionalObjects[link]) {
                     const CustomComponent = additionalObjects[link];
@@ -47,7 +47,7 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects}) =>{
                         <Link 
                             key={link}
                             to={link}
-                            className={`textContainer__text text ${activeLink === link ? active_state : ''}`}
+                            className={`${defaultClass} ${activeLink === link ? active_state : ''}`}
                             onClick={() => handleLinkClick(link)}
                             onMouseEnter={() => handleLinkEnter(link)}
                             onMouseOut={() => handleLinkOver(link)}
