@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './Header.module.css';
-import HighlitedLinks from '../HighlitedLinks';
+import HideOnNewChoseLinks from "../HighlitedLinks/HideOnNewChoseLinks";
 
 const showObjects = {
     "/page": "",
@@ -21,13 +21,13 @@ const additionalObjects = {
 
 const Header = () => {
     return (
-        <div className={classes.header}>
-            <HighlitedLinks linkInscriptionDictionary={showObjects} 
-            additionalObjects={additionalObjects} 
-            activeClass={classes.textContainer__text_active}
-            defaultClass={`${classes.textContainer__text} ${classes.text}`} 
-            containerClass={classes.textContainer}></HighlitedLinks>
-        </div>
+       <div className={classes.header}>
+           <HideOnNewChoseLinks linkInscriptionDictionary={showObjects} 
+           additionalObjects={additionalObjects} 
+           activeClass={classes.textContainer__text_active}
+           defaultClass={`${classes.textContainer__text} ${classes.text}`} 
+           containerClass={classes.textContainer}/>
+       </div>
     );
 };
 

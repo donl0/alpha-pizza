@@ -1,28 +1,7 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-let previousActiveLink = ""
 
-const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeClass, defaultClass, containerClass}) =>{
-    const [activeLink, setActiveLink] = useState(null);
-
-    const handleLinkClick = (link) => {
-        previousActiveLink = activeLink
-        setActiveLink(link)
-    };
-
-    const handleLinkEnter = (link) => {
-        setActiveLink(link)
-    };
-
-    const handleLinkOver = (link) => {
-        if (previousActiveLink !== link) {
-            setActiveLink(previousActiveLink);
-        }
-    };
-
-    const active_state = activeClass;
-
+const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeClass, defaultClass, containerClass, activeLink, handleLinkClick, handleLinkEnter, handleLinkOver}) =>{
     return (
         <div className={containerClass}>
             {Object.keys(linkInscriptionDictionary).map( (link) => {
@@ -30,7 +9,6 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeCla
                     const CustomComponent = additionalObjects[link]["layout"];
 
                     return (
-
                         <Link 
                             key={link}
                             to={link} 
@@ -48,7 +26,7 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeCla
                         <Link 
                             key={link}
                             to={link}
-                            className={`${defaultClass} ${activeLink === link ? active_state : ''}`}
+                            className={`${defaultClass} ${activeLink === link ? activeClass : ''}`}
                             onClick={() => handleLinkClick(link)}
                             onMouseEnter={() => handleLinkEnter(link)}
                             onMouseOut={() => handleLinkOver(link)}
