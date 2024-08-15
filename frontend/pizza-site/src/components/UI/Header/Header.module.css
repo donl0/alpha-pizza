@@ -24,7 +24,7 @@
     height: 120px;
 }
 
-.headerImage.active{
+.headerImage_active>.headerImage{
     transform: rotate(-1deg);
     height: 120px;
 }
@@ -40,7 +40,7 @@
     transition: font-size 0.1s;
 }
 
-.textContainer__text.active{
+.textContainer__text_active{
     font-size: 45px;
 }
 

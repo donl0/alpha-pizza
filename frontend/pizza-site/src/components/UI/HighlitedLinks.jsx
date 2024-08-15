@@ -27,18 +27,19 @@ const HighlitedLinks = ({linkInscriptionDictionary, additionalObjects, activeCla
         <div className={containerClass}>
             {Object.keys(linkInscriptionDictionary).map( (link) => {
                 if (additionalObjects[link]) {
-                    const CustomComponent = additionalObjects[link];
+                    const CustomComponent = additionalObjects[link]["layout"];
 
                     return (
 
                         <Link 
                             key={link}
                             to={link} 
-                            className={`${activeLink === link ? active_state : ''}`}>
-                            <CustomComponent 
+                            className={`${additionalObjects[link]["baseClass"]} ${activeLink === link ? additionalObjects[link]["activeClass"] : ''}`}
                             onClick={() => handleLinkClick(link)}
-                        onMouseEnter={() => handleLinkEnter(link)}
-                        onMouseOut={() => handleLinkOver(link)}/>
+                            onMouseEnter={() => handleLinkEnter(link)}
+                            onMouseOut={() => handleLinkOver(link)}
+                            >
+                            <CustomComponent/>
                         </Link>
                     )
                 }
