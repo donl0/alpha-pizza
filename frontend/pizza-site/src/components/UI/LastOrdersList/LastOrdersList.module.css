@@ -1,0 +1,58 @@
+@import '../../../variables.css';
+
+
+.lastOrderList__container{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: aliceblue;
+
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    height: auto;
+    
+}
+
+.pizzaCardContainer{
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    min-height: 157px;
+    max-height: 157px;
+    min-width: 120px;
+    max-width: 120px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: outline 1s;
+}
+
+.pizzaCardContainer:hover{
+    outline: black solid 2px;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.pizzaCardContainer__pizzaCard{
+    margin: 6px;
+    height: 70%;
+    object-fit:contain;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+}
+
+.pizzaCardContainer__pizzaCard__image{
+    padding: 2px;
+    object-fit:fill;
+    width: 100%;
+    height: 100%;
+}
+
+.pizzaCardContainer__textContainer{
+    display: flex;
+    justify-content: center;
+    font-family: 'Kantumruy';
+    font-weight: 500;
+}
