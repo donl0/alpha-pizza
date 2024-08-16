@@ -1,5 +1,5 @@
 import styles from "./PizzaGood.module.css"
-import OrangeSecondaryActionButton from "./../Buttons/FadeActionButton/OrangeSecondaryActionButton"
+import OrangeSecondaryActionButton from "../Buttons/FadeActionButton/orangeSecondaryActionButton/OrangeSecondaryActionButton"
 
 const PizzaGood = ({image, name, prise, buttonCaption, id}) => {
     return (

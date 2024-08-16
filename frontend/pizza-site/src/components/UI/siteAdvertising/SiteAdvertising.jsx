@@ -1,5 +1,6 @@
-import PinkFadeActionButton from '../Buttons/FadeActionButton/PinkFadeActionButton';
 import styles from './SiteAdvertising.module.css'
+
+import PinkFadeActionButton from '../Buttons/FadeActionButton/pinkFadeActionButton/PinkFadeActionButton';
 
 const SiteAdvertising = () => {
     return (

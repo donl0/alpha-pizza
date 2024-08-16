@@ -1,10 +1,10 @@
-button>p{
+.currentButton>p{
     font-weight: 400;
     color: white;
     font-size: 18px;
 }
 
-button{
+.currentButton{
     background-color: #EB7100;
     width: 100px;
     height: 30px;
@@ -13,6 +13,6 @@ button{
     transition: background-color 0.1s;
 }
 
-button:hover{
+.currentButton:hover{
     background-color: #fd9432;
 }

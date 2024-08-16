@@ -1,13 +1,11 @@
-@import '../../../../variables.css';
-
-button>p{
+.curentButton>p{
     font-family: 'Kantumruy';
     font-weight: 600;
     color: white;
     font-size: 22px;
 }
 
-button{
+.curentButton{
     background-color: var(--primary-color);
     width: 160px;
     height: 44px;
@@ -16,6 +14,6 @@ button{
     transition: background-color 0.1s;
 }
 
-button:hover{
+.curentButton:hover{
     background-color: #f1327e;
 }
