@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    margin-top: 20px;
+}
+
+.siteInfOContainer{
+    width: 55%;
+    margin-top: 35px;
+    margin-left: 7%;
+    margin-right: 7%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.siteInfOSecondContainer{
+    width: 25%;
+    margin-top: 35px;
+    margin-left: 7%;
+    margin-right: 7%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.manImage {
+    height: 350px;
+}
