@@ -1,5 +1,5 @@
 import styles from "./LastOrdersList.module.css"
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const LastOrdersList = ({pizzas}) => {
     const containerRef = useRef(null);
@@ -7,8 +7,24 @@ const LastOrdersList = ({pizzas}) => {
     const handleWheel = (event) => {
         if (containerRef.current) {
             containerRef.current.scrollLeft += event.deltaY/3;
+
+            event.preventDefault();
         }
     };
+
+    useEffect(() => {
+        const preventPageScroll = (event) => {
+            if (containerRef.current && containerRef.current.contains(event.target)) {
+                event.preventDefault();
+            }
+        };
+
+        window.addEventListener("wheel", preventPageScroll, { passive: false });
+
+        return () => {
+            window.removeEventListener("wheel", preventPageScroll);
+        };
+    }, []);
 
     const preventDefaultActions = (event) => {
         event.preventDefault();
