@@ -1,0 +1,15 @@
+@import '../../../variables.css';
+
+
+.container{
+    font-size: 35px;
+    font-family: 'Kantumruy';
+    font-weight: 500;
+    text-wrap: nowrap;
+
+    box-shadow: 3px 3px 2px rgb(179, 179, 179);
+    border-radius: 4px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    width:fit-content;
+}
