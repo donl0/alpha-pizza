@@ -1,0 +1,35 @@
+.pizzaGood__container{
+width: 216px;
+padding: 10px;
+background-color: #F8F8F8;
+border-radius: 14px;
+
+}
+
+.pizzaGood__mainText{
+    display: flex;
+    justify-content: center;
+
+    font-size: 25px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.pizzaGood__container__image{
+    padding-bottom: 5px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.pizzaGood__image{
+    width: 180px;
+}
+
+.pizzaGood__bottomLineContainer{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;   
+    padding-left: 5px;
+}
