@@ -1,35 +1,34 @@
-.pizzaGood__container{
-width: 216px;
-padding: 10px;
-background-color: #F8F8F8;
-border-radius: 14px;
-
-}
-
-.pizzaGood__mainText{
+.pizzaGood__container {
+    width: 200px;
+    padding: 10px;
+    background-color: #F8F8F8;
+    border-radius: 14px;
+    height: 310px;
     display: flex;
-    justify-content: center;
-
-    font-size: 25px;
-    text-align: center;
-    font-weight: 500;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.pizzaGood__container__image{
-    padding-bottom: 5px;
-
+.pizzaGood__container__image {
     display: flex;
     justify-content: center;
 }
 
-.pizzaGood__image{
+.pizzaGood__image {
     width: 180px;
 }
 
-.pizzaGood__bottomLineContainer{
-    padding-top: 20px;
+.pizzaGood__mainText {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: auto;
+}
+
+.pizzaGood__bottomLineContainer {
     display: flex;
     justify-content: space-between;
-    align-items: end;   
+    align-items: center;
     padding-left: 5px;
 }
