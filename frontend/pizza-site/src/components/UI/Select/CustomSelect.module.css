@@ -27,6 +27,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.5s;
+
 }
 
 .container__item:first-child {
@@ -37,12 +39,12 @@
     border-radius: 0 12px 12px 0;
 }
 
-/* Правило для hover, но оно не применяется, если есть .customSelect_background_active */
 .container__item:hover .customSelect_background {
     background-color: rgb(212, 212, 212);
 }
 
-/* Более специфичное правило, которое переопределяет эффект hover для активного элемента */
 .container__item .customSelect_background.customSelect_background_active {
+    transition: background-color 0.5s;
+
     background-color: var(--primary-color);
 }
