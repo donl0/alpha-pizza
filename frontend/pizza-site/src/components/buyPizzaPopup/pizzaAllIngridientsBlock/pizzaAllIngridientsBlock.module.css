@@ -1,0 +1,13 @@
+.pizyPopup__menu__itemsContainer{
+    width: 380px;
+    padding: 20px;
+    background-color: rgb(247, 247, 247);
+}
+
+.pizzaAllIngridients__toppingsList{
+    margin-top: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 500px;
+    border-radius: 10px;
+}
