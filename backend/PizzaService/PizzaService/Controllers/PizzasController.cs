@@ -70,7 +70,7 @@ namespace PizzaService.Controllers
             {
                 string fileExtension = ".png";
 
-                await _pizzaUpdateImageService.Update(id, new ImageSaver(value, _config, fileExtension).Save);
+                await _pizzaUpdateImageService.Update(id, new PizzaImageSaver(value, _config, fileExtension).Save);
             }
             catch (NotFoundException ex)
             {
