@@ -3,7 +3,6 @@ using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PizzaService.DTOs;
-using PizzaService.Services;
 
 namespace PizzaService.Controllers
 {
@@ -98,7 +97,23 @@ namespace PizzaService.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Guid>> Delete(Guid id)
         {
+            Order order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
 
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var item in order.Toppings)
+            {
+                _context.ToppingsCount.Remove(item);
+            }
+
+            _context.Orders.Remove(order);
+
+            _context.SaveChangesAsync(_token);
+
+            return Ok(id);
         }
 
         [NonAction]
