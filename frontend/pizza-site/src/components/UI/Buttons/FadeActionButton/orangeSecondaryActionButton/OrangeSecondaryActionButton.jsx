@@ -1,9 +1,10 @@
 import styles from './OrangeSecondaryActionButton.module.css'
 
-const OrangeSecondaryActionButton = ({children}) => {
+const OrangeSecondaryActionButton = ({onClick, children}) => {
 
     return (
-        <button className={styles.currentButton}>
+        <button className={styles.currentButton}
+        onClick={onClick}>
             <p>{children}</p>
         </button>
     )

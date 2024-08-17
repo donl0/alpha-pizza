@@ -1,7 +1,7 @@
 import styles from "./PizzaGood.module.css"
 import OrangeSecondaryActionButton from "../Buttons/FadeActionButton/orangeSecondaryActionButton/OrangeSecondaryActionButton"
 
-const PizzaGood = ({image, name, prise, buttonCaption, id}) => {
+const PizzaGood = ({image, name, prise, buttonCaption, id, onClick}) => {
     return (
         <div className={styles.pizzaGood__container}>
             <div className={styles.pizzaGood__container__image}>
@@ -11,7 +11,7 @@ const PizzaGood = ({image, name, prise, buttonCaption, id}) => {
                 
                 <div className={styles.pizzaGood__bottomLineContainer}>
                     <span className={styles.pizzaGood__prise}>from {prise}$</span>
-                    <OrangeSecondaryActionButton>{buttonCaption}</OrangeSecondaryActionButton>
+                    <OrangeSecondaryActionButton onClick={onClick}>{buttonCaption}</OrangeSecondaryActionButton>
                 </div>
             
         </div>

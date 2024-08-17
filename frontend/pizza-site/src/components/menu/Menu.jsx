@@ -1,5 +1,7 @@
+import BuyPizzaPopup from "../buyPizzaPopup/BuyPizzaPopup";
 import PizzaGoodList from "../UI/pizzaGoodList/PizzaGoodList";
 import styles from './Menu.module.css';
+import React, { useState } from 'react';
 
 const pizzas = [{
     image: "/images/pizzas/custom_pizza.svg",
@@ -52,9 +54,16 @@ const pizzas = [{
 ]
 
 const Menu = () => {
+    const [isPopupActive, setPopupState] = useState(false);
+
+    const handlePopupOpen = () => {
+        setPopupState(true);
+    };
+
     return (
         <div className={styles.container}>
-            <PizzaGoodList pizzas={pizzas}></PizzaGoodList>
+            <PizzaGoodList pizzas={pizzas} onClick={handlePopupOpen}></PizzaGoodList>
+            <BuyPizzaPopup isActive={isPopupActive} setPopupState={setPopupState}></BuyPizzaPopup>
         </div>
     )
 }
