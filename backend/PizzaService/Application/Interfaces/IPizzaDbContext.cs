@@ -11,6 +11,7 @@ namespace Application.Interfaces
         DbSet<SizeCost> SizeCosts { get; set; }
         DbSet<Topping> Toppings { get; set; }
         DbSet<PizzaPiecesImages> PizzaPiecesImages { get; set; }
+        DbSet<ToppingCount> ToppingsCount { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

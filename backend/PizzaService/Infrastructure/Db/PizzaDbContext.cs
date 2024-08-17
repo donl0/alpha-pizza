@@ -12,6 +12,7 @@ namespace Infrastructure.Db
         public DbSet<SizeCost> SizeCosts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<PizzaPiecesImages> PizzaPiecesImages { get; set; }
+        public DbSet<ToppingCount> ToppingsCount { get; set; }
 
         public PizzaDbContext(DbContextOptions<PizzaDbContext> options)
             : base(options)
