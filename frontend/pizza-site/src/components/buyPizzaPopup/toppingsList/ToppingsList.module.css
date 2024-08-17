@@ -1,0 +1,18 @@
+.toppingItem__name{
+    font-size: 28px;
+    font-weight: 480;
+}
+
+.container{
+    display: flex;
+    justify-content:center; 
+}
+
+.toppings__toppingsContainer{
+    margin-top: 15px;
+    display: flex;
+    justify-content:start;
+    flex-wrap: wrap;
+
+
+}
