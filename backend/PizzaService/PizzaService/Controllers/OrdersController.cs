@@ -63,6 +63,8 @@ namespace PizzaService.Controllers
                         Count = item.Count
                     };
 
+                    _context.ToppingsCount.Add(toppingCount);
+
                     existToppings.Add(toppingCount);
                 }
                 else {
@@ -93,14 +95,10 @@ namespace PizzaService.Controllers
             return NotFound(nameof(pizza));
         }
 
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult<Guid>> Delete(Guid id)
         {
+
         }
 
         [NonAction]
