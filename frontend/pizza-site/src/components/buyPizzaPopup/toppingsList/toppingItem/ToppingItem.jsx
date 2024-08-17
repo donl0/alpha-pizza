@@ -1,18 +1,21 @@
 import styles from "./ToppingItem.module.css"
 import React, { useState } from 'react';
 
-const ToppingItem = ({image, name, price}) => {
+const ToppingItem = ({image, name, price, currentCost, setCurrentCost}) => {
     const [count, setCount] = useState(0);
 
     function increase(){
         setCount(count + 1);
+        setCurrentCost(currentCost + price)
     }
 
     function decrease(){
         if (count > 0) {
             setCount(count - 1);
+            setCurrentCost(currentCost - price)
         }
     }
+
     return (
         <div className={styles.toppingItem__container}>
             <div className={styles.toppingItem__container__imageContainer}>

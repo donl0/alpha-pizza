@@ -48,7 +48,7 @@ name: "cheez"
                             name: "cheez"
                             }]
 
-const ToppingsList = () => {
+const ToppingsList = ({currentCost, setCurrentCost}) => {
     return (
         <div>
             <span className={styles.toppingItem__name}>Toppings</span>
@@ -58,8 +58,10 @@ const ToppingsList = () => {
                         <ToppingItem key={topping["id"]}
                         image={topping["image"]}
                         name={topping["name"]}
-                        price={topping["price"]}>
-                        
+                        price={topping["price"]}
+                        currentCost={currentCost}
+                        setCurrentCost={setCurrentCost}>
+                         
                         </ToppingItem>
                     )
                 })}
