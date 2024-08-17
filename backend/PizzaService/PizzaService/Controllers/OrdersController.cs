@@ -74,10 +74,13 @@ namespace PizzaService.Controllers
 
             if (pizza != null)
             {
+                int finalPrise = CalculatePrise(existToppings, value.Size, pizza.SizeCosts);
+
                 Order order = new Order
                 {
                     Pizza = pizza,
-                    FinalPrise = 1,
+                    Size = value.Size,
+                    FinalPrise = finalPrise,
                     Toppings = existToppings,
                     Date = DateTime.UtcNow
                 };
@@ -87,23 +90,34 @@ namespace PizzaService.Controllers
                 _context.SaveChangesAsync(_token);
             }
 
-
-
             return NotFound(nameof(pizza));
         }
 
-        // PUT api/<OrdersController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<OrdersController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
         }
 
+        [NonAction]
+        private int CalculatePrise(List<ToppingCount> toppings, int size, List<SizeCost> sizeCosts)
+        {
+            int finalPrise = 0;
 
+            int sizePrice = sizeCosts.FirstOrDefault(s => s.Size == size).Cost;
+
+            finalPrise += sizePrice;
+
+            foreach (var item in toppings)
+            {
+                finalPrise += item.Topping.Price * item.Count;
+            }
+
+            return finalPrise;
+        }
     }
 }
