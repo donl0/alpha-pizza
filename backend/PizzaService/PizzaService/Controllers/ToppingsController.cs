@@ -52,7 +52,9 @@ namespace PizzaService.Controllers
         [HttpPost]
         public async Task<ActionResult<Guid>> Post([FromForm] ToppingDTO value)
         {
-            string imagePath = await _imageSaver.Save(value.Image);
+            string fileExtension = ".png";
+
+            string imagePath = await _imageSaver.Save(value.Image, fileExtension);
 
             Topping topping = new Topping
             {

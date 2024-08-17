@@ -11,7 +11,7 @@
             _fileExtension = fileExtension;
         }
 
-        public async Task<string> Save(IFormFile file)
+        public async Task<string> Save(IFormFile file, string fileExtension)
         {
             var filePath = Path.Combine(
                                 _config["StoredPizzaImagesPath"],
