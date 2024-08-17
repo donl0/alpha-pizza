@@ -50,7 +50,7 @@ namespace PizzaService.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Guid>> Post([FromBody] ToppingDTO value)
+        public async Task<ActionResult<Guid>> Post([FromForm] ToppingDTO value)
         {
             string imagePath = await _imageSaver.Save(value.Image);
 
