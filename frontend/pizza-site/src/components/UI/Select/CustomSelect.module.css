@@ -1,0 +1,48 @@
+@import '../../../variables.css';
+
+.customSelect__container {
+    display: flex;
+    font-size: 12px;
+    font-weight: 550;
+    color: rgb(0, 0, 0);
+    user-select: none;
+}
+
+.customSelect_background {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.1s;
+}
+
+.container__item {
+    width: 60px;
+    height: 22px;
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container__item:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.container__item:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+/* Правило для hover, но оно не применяется, если есть .customSelect_background_active */
+.container__item:hover .customSelect_background {
+    background-color: rgb(212, 212, 212);
+}
+
+/* Более специфичное правило, которое переопределяет эффект hover для активного элемента */
+.container__item .customSelect_background.customSelect_background_active {
+    background-color: var(--primary-color);
+}
