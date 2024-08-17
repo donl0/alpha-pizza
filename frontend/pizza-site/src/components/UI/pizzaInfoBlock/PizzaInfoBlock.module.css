@@ -1,0 +1,11 @@
+.pizzaInfoBlock__name{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.pizzaInfoBlock__ingridients{
+    font-weight: 330;
+    color: rgb(97, 97, 97);
+    font-size: 15px;
+
+}
