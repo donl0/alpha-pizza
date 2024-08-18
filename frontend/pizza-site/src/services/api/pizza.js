@@ -30,13 +30,3 @@ export const getPizzaById = async (id) => {
     
     return parsed;
 }
-
-export const createOrder = async (order) => {
-    await fetch(`${BASE_URL_API}/Orders`, {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        bosy: JSON.stringify(order)
-    }) 
-}
