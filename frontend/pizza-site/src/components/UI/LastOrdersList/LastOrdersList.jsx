@@ -43,7 +43,7 @@ const LastOrdersList = ({pizzas}) => {
                     onDragStart={preventDefaultActions} 
                     onContextMenu={preventDefaultActions}>
                         <img
-                            src={pizza["image"]}
+                            src={pizza["pizza"]["imagePath"]}
                             alt="pizza"
                             className={styles.pizzaCardContainer__pizzaCard__image}
                             draggable="false"
@@ -53,7 +53,7 @@ const LastOrdersList = ({pizzas}) => {
                     onMouseDown={preventDefaultActions} 
                     onDragStart={preventDefaultActions} 
                     onContextMenu={preventDefaultActions}>
-                        <span>{pizza["name"]}</span>
+                        <span>{pizza["pizza"]["name"]}</span>
                     </div>
                 </div>
             ))}
