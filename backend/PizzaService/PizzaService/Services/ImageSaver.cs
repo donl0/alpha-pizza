@@ -5,10 +5,9 @@
         private readonly IConfiguration _config;
         private readonly string _fileExtension;
 
-        public ImageSaver(IConfiguration config, string fileExtension)
+        public ImageSaver(IConfiguration config)
         {
             _config = config;
-            _fileExtension = fileExtension;
         }
 
         public async Task<string> Save(IFormFile file, string fileExtension)
