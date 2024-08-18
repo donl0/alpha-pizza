@@ -47,7 +47,7 @@ namespace PizzaService.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Pizza>> Get(Guid id)
         {
-            Pizza result = await _context.Pizzas.SingleOrDefaultAsync(p => p.Id == id);
+            Pizza result = await _context.Pizzas.Include(p => p.ConsistOf).Include(p => p.SizeCosts).SingleOrDefaultAsync(p => p.Id == id);
 
             if (result != null)
             {
