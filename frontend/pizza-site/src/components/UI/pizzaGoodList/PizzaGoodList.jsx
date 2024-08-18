@@ -5,23 +5,20 @@ const PizzaGoodList = ({pizzas, onClick}) => {
     return (
         <div className={styles.pizzas__generalContainer}>
            
-            {pizzas.map( (pizza, key) => {
+            {pizzas.map( (pizza, index) => {
                 return (
-                    <div key={key} className={styles.generalContainer__pizzaContainer}>
+                    <div key={index} className={styles.generalContainer__pizzaContainer}>
                         <PizzaGood
                         image={pizza["imagePath"]} 
                         name={pizza["name"]} 
                         price={pizza["price"]} 
                         buttonCaption={pizza["buttonCaption"]}
-                        onClick={onClick}
+                        onClick={() => onClick(pizza["id"])}
                         id={pizza["id"]}
                         ></PizzaGood>
                     </div>
                 )
             })}
-        
-            
-           
         </div>
     )
 }
