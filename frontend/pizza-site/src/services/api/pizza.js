@@ -23,6 +23,14 @@ export const getAllPizzas = async () => {
     return parsed;
 }
 
+export const getPizzaById = async (id) => {
+    const responce = await fetch(`${BASE_URL_API}/Pizzas/${id}`);
+
+    let parsed = await responce.json();
+    
+    return parsed;
+}
+
 export const createOrder = async (order) => {
     await fetch(`${BASE_URL_API}/Orders`, {
         method: "POST",
