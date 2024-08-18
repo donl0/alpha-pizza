@@ -1,7 +1,9 @@
+import { getAllPizzas } from "../../services/api/pizza";
+import { parsePizzasForMenu } from "../../services/parsePizza";
 import BuyPizzaPopup from "../buyPizzaPopup/BuyPizzaPopup";
 import PizzaGoodList from "../UI/pizzaGoodList/PizzaGoodList";
 import styles from './Menu.module.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const pizzas = [{
     image: "/images/pizzas/custom_pizza.svg",
@@ -54,6 +56,18 @@ const pizzas = [{
 ]
 
 const Menu = () => {
+    useEffect( () => {
+        const getPizzas = async() => {
+            
+            let pizzas = parsePizzasForMenu(await getAllPizzas());
+            setPizas(pizzas);
+        };
+
+        getPizzas();
+    })
+
+    const [pizzas, setPizas] = useState([]);
+
     const [isPopupActive, setPopupState] = useState(false);
 
     const handlePopupOpen = () => {

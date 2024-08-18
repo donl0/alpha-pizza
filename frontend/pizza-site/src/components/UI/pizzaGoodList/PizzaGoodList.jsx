@@ -9,11 +9,12 @@ const PizzaGoodList = ({pizzas, onClick}) => {
                 return (
                     <div key={key} className={styles.generalContainer__pizzaContainer}>
                         <PizzaGood
-                        image={pizza["image"]} 
+                        image={pizza["imagePath"]} 
                         name={pizza["name"]} 
-                        prise={pizza["prise"]} 
+                        price={pizza["price"]} 
                         buttonCaption={pizza["buttonCaption"]}
                         onClick={onClick}
+                        id={pizza["id"]}
                         ></PizzaGood>
                     </div>
                 )
