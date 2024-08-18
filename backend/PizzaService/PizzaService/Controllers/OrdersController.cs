@@ -22,7 +22,15 @@ namespace PizzaService.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> Get()
         {
-            IEnumerable<Order> orders = await _context.Orders.AsNoTracking().ToListAsync();
+            IEnumerable<Order> orders = await _context.Orders
+         .Include(o => o.Pizza)
+             .ThenInclude(p => p.ConsistOf)
+         .Include(o => o.Pizza)
+             .ThenInclude(p => p.SizeCosts)
+         .Include(o => o.Toppings)
+             .ThenInclude(tc => tc.Topping)
+         .AsNoTracking()
+         .ToListAsync();
 
             if (orders.Count() > 0)
             {
@@ -62,7 +70,7 @@ namespace PizzaService.Controllers
                         Count = item.Count
                     };
 
-                    _context.ToppingsCount.Add(toppingCount);
+                    await _context.ToppingsCount.AddAsync(toppingCount);
 
                     existToppings.Add(toppingCount);
                 }
@@ -71,7 +79,7 @@ namespace PizzaService.Controllers
                      }
             }
 
-            Pizza pizza = await _context.Pizzas.FirstOrDefaultAsync(p => p.Id == value.PizzaId);
+            Pizza pizza = await _context.Pizzas.Include(p => p.ConsistOf).Include(p => p.SizeCosts).FirstOrDefaultAsync(p => p.Id == value.PizzaId);
 
             if (pizza != null)
             {
@@ -88,7 +96,9 @@ namespace PizzaService.Controllers
 
                 await _context.Orders.AddAsync(order);
 
-                _context.SaveChangesAsync(_token);
+                await _context.SaveChangesAsync(_token);
+
+                return Ok(order.Id);
             }
 
             return NotFound(nameof(pizza));
@@ -111,7 +121,7 @@ namespace PizzaService.Controllers
 
             _context.Orders.Remove(order);
 
-            _context.SaveChangesAsync(_token);
+            await _context.SaveChangesAsync(_token);
 
             return Ok(id);
         }
