@@ -3,7 +3,6 @@
     public class ImageSaver: IImageSaver
     {
         private readonly IConfiguration _config;
-        private readonly string _fileExtension;
 
         public ImageSaver(IConfiguration config)
         {
@@ -15,7 +14,7 @@
             var filePath = Path.Combine(
                                 _config["StoredPizzaImagesPath"],
                                 Path.GetRandomFileName() +
-                                _fileExtension
+                                fileExtension
                                 );
 
             using (var stream = System.IO.File.Create(filePath))
