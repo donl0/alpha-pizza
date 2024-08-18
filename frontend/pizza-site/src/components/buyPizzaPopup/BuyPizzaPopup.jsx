@@ -6,12 +6,16 @@ import { getAllPizzas, getPizzaById } from "../../services/api/pizza"
 
 const BuyPizzaPopup = ({isActive, setPopupState, buyPizzaId}) =>{
     useEffect( () => {
-        const setInitialPizzaById = async(id) => {
-            let pizza = parsePizza(await getPizzaById(id));
+        const setPizzaOnChange = async(id) => {
+            if (isActive == false) {
+                return
+            }
+
+            let pizza = parsePizza([await getPizzaById(id)])[0];
             setCurrentPizza(pizza);
         };
 
-        setInitialPizzaById(buyPizzaId);
+        setPizzaOnChange(buyPizzaId);
     }, [buyPizzaId])
 
     const [currentPizza, setCurrentPizza] = useState(() => {
@@ -30,8 +34,6 @@ const BuyPizzaPopup = ({isActive, setPopupState, buyPizzaId}) =>{
     return (
         <div className={`${styles.pizyPopup__background} ${isActive ? styles.active : ''}`}
         onClick={()=> {
-            console.log("clicked");
-            
             setPopupState(false);
             }}>
             <div className={styles.pizyPopup__menu} 
