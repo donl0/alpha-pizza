@@ -1,9 +1,9 @@
 import styles from './PinkFadeActionButton.module.css'
 
-const PinkFadeActionButton = ({children}) => {
+const PinkFadeActionButton = ({clickAction, children}) => {
 
     return (
-        <button className={styles.curentButton}>
+        <button className={styles.curentButton} onClick={()=> clickAction()}>
             <p>{children}</p>
         </button>
     )
