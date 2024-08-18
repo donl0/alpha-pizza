@@ -1,3 +1,5 @@
+import { getAllToppings } from '../../../services/api/topping';
+import { parseToppings } from '../../../services/parceTopping';
 import PinkFadeActionButton from '../../UI/Buttons/FadeActionButton/pinkFadeActionButton/PinkFadeActionButton';
 import PizzaInfoBlock from '../../UI/pizzaInfoBlock/PizzaInfoBlock';
 import CustomSelect from '../../UI/Select/CustomSelect';
@@ -9,6 +11,18 @@ const PizzaAllIngridientsBlock = ({pizza}) => {
     const [finalPrice, setFinalPrice] = useState(0);
     const [currentToppingsCost, setCurrentToppingsCost] = useState(0);
     const [currentSize, setSize] = useState(null);
+
+    const [toppings, setToppings] = useState([]);
+
+    useEffect(() => {
+        const fetchToppings = async () => {
+            const fetchedToppings = await getAllToppings();
+            const parsedToppings = parseToppings(fetchedToppings);
+            setToppings(parsedToppings);
+        };
+
+        fetchToppings();
+    }, []);
 
     useEffect(() => {
         if (pizza) {
@@ -74,7 +88,8 @@ const PizzaAllIngridientsBlock = ({pizza}) => {
                     <div className={styles.pizzaAllIngridients__toppingsList}>
                         <ToppingsList
                         currentCost={currentToppingsCost}
-                        setCurrentCost={handleCurrentToppingsCost}></ToppingsList>
+                        setCurrentCost={handleCurrentToppingsCost}
+                        toppings={toppings}></ToppingsList>
                     </div>
                     <div className={styles.pizzaAllIngridients__price}>
                         <span className={styles.pizzaAllIngridients__price__text}>{finalPrice} $</span>

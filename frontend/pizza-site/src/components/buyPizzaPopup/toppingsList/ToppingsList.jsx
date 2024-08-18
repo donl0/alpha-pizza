@@ -1,54 +1,7 @@
 import ToppingItem from "./toppingItem/ToppingItem";
 import styles from "./ToppingsList.module.css"
 
-const toppings = [{
-id:1,
-price: 14,
-image: "/images/pizzas/custom_pizza.svg",
-name: "mozzarella with cheese asd"
-},{
-id:2,
-price: 14,
-image: "/images/pizzas/custom_pizza.svg",
-name: "cheez"
-},{
-    id:3,
-    price: 14,
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "cheez"
-    },{
-        id:4,
-        price: 14,
-        image: "/images/pizzas/custom_pizza.svg",
-        name: "cheez"
-        },{
-            id:5,
-            price: 14,
-            image: "/images/pizzas/custom_pizza.svg",
-            name: "cheez"
-            },{
-                id:5,
-                price: 14,
-                image: "/images/pizzas/custom_pizza.svg",
-                name: "cheez"
-                },{
-                    id:5,
-                    price: 14,
-                    image: "/images/pizzas/custom_pizza.svg",
-                    name: "cheez"
-                    },{
-                        id:5,
-                        price: 14,
-                        image: "/images/pizzas/custom_pizza.svg",
-                        name: "cheez"
-                        },{
-                            id:5,
-                            price: 14,
-                            image: "/images/pizzas/custom_pizza.svg",
-                            name: "cheez"
-                            }]
-
-const ToppingsList = ({currentCost, setCurrentCost}) => {
+const ToppingsList = ({currentCost, setCurrentCost, toppings}) => {
     return (
         <div>
             <span className={styles.toppingItem__name}>Toppings</span>
