@@ -68,7 +68,7 @@ const PizzaAllIngridientsBlock = ({pizza}) => {
                     consistOf={pizza["consistOf"]}></PizzaInfoBlock>
 
                     <div className={styles.pizzaAllIngridients__customSelect}>
-                        <CustomSelect items={pizza["sizeCosts"].map( (item) => item["cost"])} currentChoosen={currentSize} setCurrent={updateSize}></CustomSelect>
+                        <CustomSelect items={pizza["sizeCosts"].map( (item) => item["size"])} currentChoosen={currentSize} setCurrent={updateSize}></CustomSelect>
                     </div>
 
                     <div className={styles.pizzaAllIngridients__toppingsList}>
