@@ -1,18 +1,20 @@
 import styles from "./ToppingItem.module.css"
 import React, { useState } from 'react';
 
-const ToppingItem = ({image, name, price, currentCost, setCurrentCost}) => {
+const ToppingItem = ({image, name, price, currentCost, setCurrentCost, id, addSelected, removeSelected}) => {
     const [count, setCount] = useState(0);
 
     function increase(){
         setCount(count + 1);
-        setCurrentCost(currentCost + price)
+        setCurrentCost(currentCost + price);
+        addSelected(id);
     }
 
     function decrease(){
         if (count > 0) {
             setCount(count - 1);
             setCurrentCost(currentCost - price)
+            removeSelected(id);
         }
     }
 

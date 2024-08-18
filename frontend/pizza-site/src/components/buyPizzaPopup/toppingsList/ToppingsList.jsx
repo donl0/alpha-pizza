@@ -1,7 +1,7 @@
 import ToppingItem from "./toppingItem/ToppingItem";
 import styles from "./ToppingsList.module.css"
 
-const ToppingsList = ({currentCost, setCurrentCost, toppings}) => {
+const ToppingsList = ({currentCost, setCurrentCost, toppings, addSelected, removeSelected}) => {
     return (
         <div>
             <span className={styles.toppingItem__name}>Toppings</span>
@@ -13,7 +13,10 @@ const ToppingsList = ({currentCost, setCurrentCost, toppings}) => {
                         name={topping["name"]}
                         price={topping["price"]}
                         currentCost={currentCost}
-                        setCurrentCost={setCurrentCost}>
+                        setCurrentCost={setCurrentCost}
+                        id={topping["id"]}
+                        addSelected={addSelected}
+                        removeSelected={removeSelected}>
                          
                         </ToppingItem>
                     )
