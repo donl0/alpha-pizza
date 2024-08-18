@@ -16,54 +16,6 @@ const LastOrdersCaptionList = ({children}) => {
 
     const [orders, setOrders] = useState([]);
 
-    const pizzas = [{
-        name: "pineApple",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    },{
-        name: "barkeku",
-        image: 'pineApple.png'
-    }
-    ]
-
     return (
         <div >
             <div className={styles.container}>
