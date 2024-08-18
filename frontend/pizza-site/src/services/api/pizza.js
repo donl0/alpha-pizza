@@ -1,3 +1,5 @@
+import { makeImagePath } from "./makeImagePath";
+
 const BASE_URL = "https://localhost:7176/";
 const BASE_URL_API = BASE_URL+"api";
 
@@ -7,10 +9,7 @@ export const getLastOrders = async () => {
     let parsed = await responce.json();
 
     for (let index = 0; index < parsed.length; index++) {
-        const formattedPath = parsed[index]["pizza"]["imagePath"].replace(/\\/g, '/').replace('wwwroot/', '');
-
-        parsed[index]["pizza"]["imagePath"] = BASE_URL +  formattedPath;
-        
+        parsed[index]["pizza"]["imagePath"] = makeImagePath(parsed[index]["pizza"]["imagePath"], BASE_URL);
     }
     
     return parsed;
