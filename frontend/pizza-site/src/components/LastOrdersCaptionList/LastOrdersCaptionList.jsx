@@ -12,7 +12,7 @@ const LastOrdersCaptionList = ({children}) => {
         };
 
         getOrders();
-    })
+    }, [])
 
     const [orders, setOrders] = useState([]);
 

@@ -5,79 +5,40 @@ import PizzaGoodList from "../UI/pizzaGoodList/PizzaGoodList";
 import styles from './Menu.module.css';
 import React, { useEffect, useState } from 'react';
 
-const pizzas = [{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Builed pizza by yourself",
-    prise: "11",
-    buttonCaption: "Builed"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-},
-{
-    image: "/images/pizzas/custom_pizza.svg",
-    name: "Pepperoni",
-    prise: "13",
-    buttonCaption: "Order"
-}
-]
-
 const Menu = () => {
     useEffect( () => {
         const getPizzas = async() => {
             
             let pizzas = parsePizzasForMenu(await getAllPizzas());
-            setPizas(pizzas);
+            setPizzas(pizzas);
         };
 
         getPizzas();
-    })
+    }, [])
 
-    const [pizzas, setPizas] = useState([]);
-
+    const [pizzas, setPizzas] = useState([]);
     const [isPopupActive, setPopupState] = useState(false);
 
-    const handlePopupOpen = () => {
+    const [buyPizzaId, setbuyPizzaId] = useState(() => {
+        const getFirstPizza = async() => {
+            let pizzas = parsePizzasForMenu(await getAllPizzas());
+            return pizzas[0]["id"];
+        };
+
+        return getFirstPizza();
+    });
+
+    const handleOpenBuyPizzaMenu = (pizzaId) => {
+        setbuyPizzaId(pizzaId)
         setPopupState(true);
     };
 
     return (
         <div className={styles.container}>
-            <PizzaGoodList pizzas={pizzas} onClick={handlePopupOpen}></PizzaGoodList>
-            <BuyPizzaPopup isActive={isPopupActive} setPopupState={setPopupState}></BuyPizzaPopup>
+            <PizzaGoodList pizzas={pizzas} onClick={handleOpenBuyPizzaMenu}></PizzaGoodList>
+            <BuyPizzaPopup isActive={isPopupActive} 
+            setPopupState={setPopupState}
+            buyPizzaId={buyPizzaId}></BuyPizzaPopup>
         </div>
     )
 }

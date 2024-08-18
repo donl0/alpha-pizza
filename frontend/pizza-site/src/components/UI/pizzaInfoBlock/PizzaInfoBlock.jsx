@@ -8,8 +8,8 @@ const PizzaInfoBlock = ({name, consistOf}) => {
             </div>
         <div >
         {consistOf.map((item, index) => (
-                    <span key={index} className={styles.pizzaInfoBlock__ingridients}>
-                        {item}
+                     <span key={item["id"]} className={styles.pizzaInfoBlock__ingridients}>
+                        {item["name"]}
                         {index + 1 !== consistOf.length && <span>, </span>}
                     </span>
                 ))}

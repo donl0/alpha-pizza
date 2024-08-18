@@ -5,36 +5,28 @@ import ToppingsList from '../toppingsList/ToppingsList';
 import styles from './pizzaAllIngridientsBlock.module.css';
 import React, { useState, useEffect } from 'react';
 
-const pizza = {
-    name: "Pizza Picanta with feta",
-    consistOf: ["Ham", "feta cheese", "champignons", "red onion", "arugula", "mozzarella cheese", "tomato sauce"],
-    sizes: [{
-        size: 23,
-        cost: 500,
-    },
-    {
-        size:30,
-        cost:655
-    },
-    {size:36,
-        cost:800
-    }]
-}
-
-const sizes = [23,30,36]
-
-const PizzaAllIngridientsBlock = () => {
-
+const PizzaAllIngridientsBlock = ({pizza}) => {
     const [finalPrice, setFinalPrice] = useState(0);
     const [currentToppingsCost, setCurrentToppingsCost] = useState(0);
-    const [currentSize, setSize] = useState(sizes[0]);
+    const [currentSize, setSize] = useState(null);
 
+    useEffect(() => {
+        if (pizza) {
+            const minPrice = getMinSizeFromPizzasSize(pizza);
+            setSize(minPrice);
+        }
+    }, [pizza]);
+    
     useEffect(() => {
         updateFinalPrise()
       }, [currentToppingsCost, currentSize]);
 
 
     function updateFinalPrise(){
+        if (!pizza || !pizza.sizeCosts) {
+            return
+        }
+
         setFinalPrice(getSizePrice(currentSize) + currentToppingsCost)
       }
 
@@ -46,8 +38,18 @@ const PizzaAllIngridientsBlock = () => {
         setSize(value)
     }
 
+    function getMinSizeFromPizzasSize(pizza){
+        if (!pizza || !pizza.sizeCosts) {
+            return [];
+        }
+
+        const price = Math.min(...pizza["sizeCosts"].map( (item) => item["size"]))
+
+        return price;
+    }
+
     function getSizePrice(currentSize){
-        const result =  pizza["sizes"].find((sizeCost) => sizeCost["size"] == currentSize)
+        const result =  pizza["sizeCosts"].find((sizeCost) => sizeCost["size"] == currentSize)
 
         if (result !== null) {
             return result["cost"]
@@ -56,13 +58,17 @@ const PizzaAllIngridientsBlock = () => {
         throw new Error('Not found!');
     }
 
+    if (!pizza || !pizza.sizeCosts) {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className={styles.pizyPopup__menu__itemsContainer}>
                     <PizzaInfoBlock name={pizza["name"]}
                     consistOf={pizza["consistOf"]}></PizzaInfoBlock>
 
                     <div className={styles.pizzaAllIngridients__customSelect}>
-                        <CustomSelect items={sizes} currentChoosen={currentSize} setCurrent={updateSize}></CustomSelect>
+                        <CustomSelect items={pizza["sizeCosts"].map( (item) => item["cost"])} currentChoosen={currentSize} setCurrent={updateSize}></CustomSelect>
                     </div>
 
                     <div className={styles.pizzaAllIngridients__toppingsList}>

@@ -53,9 +53,9 @@ const ToppingsList = ({currentCost, setCurrentCost}) => {
         <div>
             <span className={styles.toppingItem__name}>Toppings</span>
             <div className={styles.toppings__toppingsContainer}>
-                {toppings.map( (topping) => {
+                {toppings.map( (topping, index) => {
                     return (
-                        <ToppingItem key={topping["id"]}
+                        <ToppingItem key={index}
                         image={topping["image"]}
                         name={topping["name"]}
                         price={topping["price"]}
