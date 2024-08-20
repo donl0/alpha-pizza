@@ -3,7 +3,7 @@ import OrderSideActorContainer from "../../UI/pizzaBuyPopup/orderSideActorContai
 import PizzaOrderPopupMenuSplitter from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/PizzaOrderPopupMenuSplitter";
 import CustomPizzaPiecesListCalculator from "../../UI/pizzaBuyPopup/toppingsItemsCalculatorTypes/customPizzaPiecesListCalculator/CustomPizzaPiecesListCalculator";
 import { CurrentSizeContext, PriseContext, ToppingsCostContext } from "../../pizzaOrderPopup/PizzaOrderPopup";
-import { getSizePrice, getSizePriceWhereSame } from "../../../utils/sizeWorker";
+import { getSizePriceWhereSame } from "../../../utils/sizeWorker";
 
 export const PizzaPiecesPriseContext = createContext();
 
@@ -23,7 +23,7 @@ const CustomPizzaMenu = () => {
         }
 
         updateFinalPrise();
-    }, [currentToppingsCost, currentSize]);
+    }, [currentToppingsCost, currentSize, piecesPrise]);
 
 
     function updateFinalPrise() {
@@ -41,7 +41,8 @@ const CustomPizzaMenu = () => {
                 sizeCosts={sizes}
                 costs={costs}
                 onOrderButtonClicked={onOrderButtonClicked}
-                additionalToppingsContent={<CustomPizzaPiecesListCalculator/>}>
+                additionalToppingsContent={<CustomPizzaPiecesListCalculator/>}
+                >
                 
                 </OrderSideActorContainer>}>
 
