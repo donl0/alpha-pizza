@@ -14,6 +14,9 @@ const DefaultOrderPizzaMenu = ({pizzaId}) => {
     const {selectedToppings, setSelectedToppings} = useContext(ToppingsContext);
     const {finalPrise, setFinalPrise} = useContext(PriseContext);
     const {currentSize, setCurrentSize} = useContext(CurrentSizeContext)
+    const [sizes, setSizes] = useState([])
+    const [costs, setCosts] = useState([])
+    const [currentPizza, setCurrentPizza] = useState([]);
 
     useEffect( () => {
         const setPizzaOnChange = async(id) => {
@@ -24,9 +27,23 @@ const DefaultOrderPizzaMenu = ({pizzaId}) => {
         setPizzaOnChange(pizzaId);
     }, [pizzaId])
 
-    const [currentPizza, setCurrentPizza] = useState([]);
+    useEffect( () => {
+        const setCostsSizesOnChange = async(pizza) => {
+            if (!currentPizza || !currentPizza.sizeCosts) {
+                return;
+            }
 
-    if (currentPizza.length == 0 || !currentPizza) {
+            let sizes = currentPizza["sizes"];
+            let costs = currentPizza["costs"];
+
+            setSizes(sizes)
+            setCosts(costs)
+        };
+
+        setCostsSizesOnChange(currentPizza);
+    }, [currentPizza])
+    
+    if (currentPizza.length == 0 || !currentPizza || sizes.length === 0 || costs.length === 0) {
         return <div></div>
     }
     
@@ -64,7 +81,9 @@ const DefaultOrderPizzaMenu = ({pizzaId}) => {
     
         return result;
     }
-
+    if (!currentPizza) {
+        return <div>Loading...</div>;
+    }
     return (
         <div>
 
@@ -74,8 +93,8 @@ const DefaultOrderPizzaMenu = ({pizzaId}) => {
                 header={<PizzaInfoBlock name={currentPizza["name"]}
                                         consistOf={currentPizza["consistOf"]}
                                         />}
-                                        sizeCosts={currentPizza["sizeCosts"]}
-                costs={currentPizza["sizeCosts"].map( (item) => item["size"])}
+                                        sizeCosts={sizes}
+                costs={costs}
                 onOrderButtonClicked={onOrderButtonClicked}/>}></PizzaOrderPopupMenuSplitter>
 
         </div>

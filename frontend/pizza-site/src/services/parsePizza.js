@@ -7,7 +7,9 @@ export const parsePizza = (pizzas) => {
         pizzas[index]["imagePath"] = makeImagePath(pizzas[index]["imagePath"], BASE_URL);        
         
         const costs = pizzas[index]["sizeCosts"].map( (item) => item["cost"])
-
+        const sizes =  pizzas[index]["sizeCosts"].map((item) => item["size"]);
+        pizzas[index]["costs"] = costs;
+        pizzas[index]["sizes"] = sizes;
         pizzas[index]["price"] = Math.min(...costs);
     }
 
