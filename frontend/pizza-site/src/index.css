@@ -1,3 +1,10 @@
+@import './variables.css';
+
+
+p,span{
+  font-family: 'Kantumruy';
+}
+
 * {
   margin: 0;
   padding: 0;
