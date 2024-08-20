@@ -8,7 +8,7 @@ let pieces = [];
 const CustomPizzaPiecesListCalculator = () => {
     const [toppings, setToppings] = useState([]);
     const [selectedPieces, setSelectedPieces] = useState([]);
-    const [piecesPrise, setPiecesPrise] = useContext(PizzaPiecesPriseContext)
+    const {piecesPrise, setPiecesPrise} = useContext(PizzaPiecesPriseContext)
 
     const maxPieces = 8;
 
@@ -22,9 +22,21 @@ const CustomPizzaPiecesListCalculator = () => {
     }, []);
 
     function addSelectedPiece(pizzaId){
-        if (pieces.length < maxPieces) {
-            pieces.push(pizzaId);
+        const countNonNull = pieces.filter(item => item !== null).length;
 
+        if (countNonNull > maxPieces -1) {
+            return false
+        }
+
+        const nullIndex = pieces.indexOf(null);
+
+        if (nullIndex !== -1) {
+            pieces[nullIndex] = pizzaId;
+            return true;
+        }
+
+        if (countNonNull < maxPieces) {
+            pieces.push(pizzaId);
             return true;
         }
 
@@ -32,10 +44,10 @@ const CustomPizzaPiecesListCalculator = () => {
     }
 
     function RemoveSelectedPiece(pizzaId){
-        if (pieces.length == 0) {
-            let lastElement = pieces[pieces.length - 1];
+        const countNonNull = pieces.filter(item => item !== null).length;
 
-            let lastIndex = pieces.lastIndexOf(lastElement);
+        if (countNonNull !== 0) {
+            const lastIndex = pieces.lastIndexOf(pizzaId);
 
             if (lastIndex !== -1) {
                 pieces[lastIndex] = null;
