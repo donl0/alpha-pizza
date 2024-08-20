@@ -1,0 +1,25 @@
+.pizzaPopup__menu{
+    background-color: white;
+    border-radius: 15px;
+    height: 630px;
+    width: 910px;
+
+    display: flex;
+}
+
+.pizzaPopup__imageContainer{
+    width: 530px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainImage {
+    height: 350px;
+}
+
+.pizzaPopup__rightSideContainer{
+    width: 380px;
+    padding: 20px;
+    background-color: rgb(247, 247, 247);
+}

@@ -1,7 +1,5 @@
-.pizyPopup__menu__itemsContainer{
-    width: 380px;
-    padding: 20px;
-    background-color: rgb(247, 247, 247);
+.pizzaAllIngridients__customSelect{
+    margin-top: 10px;
 }
 
 .pizzaAllIngridients__toppingsList{
@@ -11,6 +9,7 @@
     height: 400px;
     border-radius: 10px;
 }
+
 
 .pizzaAllIngridients__price{
     text-align:end;

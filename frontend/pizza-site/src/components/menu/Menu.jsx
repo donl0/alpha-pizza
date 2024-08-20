@@ -1,6 +1,6 @@
 import { getAllPizzas } from "../../services/api/pizza";
 import { parsePizzasForMenu } from "../../services/parsePizza";
-import BuyPizzaPopup from "../buyPizzaPopup/BuyPizzaPopup";
+import PizzaOrderPopup from "../pizzaOrderPopup/PizzaOrderPopup";
 import PizzaGoodList from "../UI/pizzaGoodList/PizzaGoodList";
 import styles from './Menu.module.css';
 import React, { useEffect, useState } from 'react';
@@ -36,9 +36,12 @@ const Menu = () => {
     return (
         <div className={styles.container}>
             <PizzaGoodList pizzas={pizzas} onClick={handleOpenBuyPizzaMenu}></PizzaGoodList>
-            <BuyPizzaPopup isActive={isPopupActive} 
+        
+            <PizzaOrderPopup
+            isActive={isPopupActive} 
             setPopupState={setPopupState}
-            buyPizzaId={buyPizzaId}></BuyPizzaPopup>
+            action={"default"}
+            pizzaId={buyPizzaId}></PizzaOrderPopup>    
         </div>
     )
 }
