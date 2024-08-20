@@ -4,5 +4,6 @@
     {
         public IFormFile MainImage { get; set; }
         public List<IFormFile> Pieces { get; set; }
+        public int Price { get; set; }
     }
 }

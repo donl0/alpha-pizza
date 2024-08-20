@@ -4,5 +4,6 @@
     {
         public string MainImagePath { get; set; }
         public List<string> Paths { get; set; }
+        public int Price { get; set; }
     }
 }

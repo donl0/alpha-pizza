@@ -32,7 +32,8 @@ namespace Infrastructure.Services
 
             PizzaPiecesImages pizzaPiecesImages = new PizzaPiecesImages
             {
-                PiecesPath = pathsContainer.Paths
+                PiecesPath = pathsContainer.Paths,
+                PiecePrice = pathsContainer.Price,
             };
 
             pizzaPiecesImages.Pizza = pizza;

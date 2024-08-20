@@ -1,6 +1,7 @@
 ﻿using Application.DTOs;
 using Application.Interfaces;
 using Domain.Models;
+using Infrastructure.DTOs;
 using Infrastructure.Exceptions;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;

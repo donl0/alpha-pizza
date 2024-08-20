@@ -18,7 +18,9 @@ namespace PizzaService.Services
 
         public async Task<PizzaImagesPathsDTO> Save()
         {
-            PizzaImagesPathsDTO pathsContainer = new PizzaImagesPathsDTO();
+            PizzaImagesPathsDTO pathsContainer = new PizzaImagesPathsDTO {
+                Price = _imagesContainer.Price,
+            };
 
             pathsContainer.MainImagePath = await Save(_imagesContainer.MainImage);
 
