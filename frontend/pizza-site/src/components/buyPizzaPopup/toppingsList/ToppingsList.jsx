@@ -17,7 +17,6 @@ const ToppingsList = ({currentCost, setCurrentCost, toppings, addSelected, remov
                         id={topping["id"]}
                         addSelected={addSelected}
                         removeSelected={removeSelected}>
-                         
                         </ToppingItem>
                     )
                 })}

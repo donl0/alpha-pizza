@@ -34,6 +34,8 @@ const ToppingListCalculator = () =>{
             }
             return newSelectedToppings;
         });
+
+        return true;
     }
 
     
@@ -50,6 +52,8 @@ const ToppingListCalculator = () =>{
 
             return newSelectedToppings;
         });
+
+        return true;
     }
 
     return (
