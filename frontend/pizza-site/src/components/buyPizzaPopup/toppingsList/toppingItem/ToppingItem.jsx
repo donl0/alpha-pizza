@@ -13,10 +13,9 @@ const ToppingItem = ({image, name, price, currentCost, setCurrentCost, id, addSe
 
     function decrease(){
         if (count > 0) {
-          if (removeSelected == true) {
+          if (removeSelected(id) === true) {
             setCount(count - 1);
             setCurrentCost(currentCost - price)
-            removeSelected(id);
           }
         }
     }
