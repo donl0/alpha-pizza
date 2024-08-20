@@ -1,7 +1,7 @@
 import { CurrentSizeContext, PriseContext, ToppingsCostContext } from "../../../pizzaOrderPopup/PizzaOrderPopup";
 import PinkFadeActionButton from "../../Buttons/FadeActionButton/pinkFadeActionButton/PinkFadeActionButton";
 import CustomSelect from "../../Select/CustomSelect";
-import ToppingListCalculator from "../toppingListCalculator/ToppingListCalculator";
+import ToppingListCalculator from "../toppingsItemsCalculatorTypes/toppingListCalculator/ToppingListCalculator";
 import styles from "./OrderSideActorContainer.module.css"
 import React, { useContext, useEffect } from 'react';
 
