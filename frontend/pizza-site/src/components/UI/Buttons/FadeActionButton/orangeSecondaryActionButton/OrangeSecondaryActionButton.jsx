@@ -4,7 +4,8 @@ const OrangeSecondaryActionButton = ({onClick, children}) => {
 
     return (
         <button className={styles.currentButton}
-        onClick={onClick}>
+        onClick= { () => {onClick()}
+        }>
             <p>{children}</p>
         </button>
     )
