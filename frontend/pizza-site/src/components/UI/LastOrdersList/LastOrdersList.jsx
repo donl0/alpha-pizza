@@ -2,7 +2,7 @@ import LastOrderListItem from "./LastOrderListItem";
 import styles from "./LastOrdersList.module.css"
 import React, { useEffect, useRef } from "react";
 
-const LastOrdersList = ({pizzas, onMouseEnter, onMouseLeave}) => {
+const LastOrdersList = ({pizzas, onMouseEnter, onMouseLeave, changeOrder}) => {
     const containerRef = useRef(null);
 
     const handleWheel = (event) => {
@@ -42,7 +42,9 @@ const LastOrdersList = ({pizzas, onMouseEnter, onMouseLeave}) => {
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 image={pizza["pizza"]["imagePath"]}
-                text={pizza["pizza"]["name"]}>
+                text={pizza["pizza"]["name"]}
+                id={pizza["id"]}
+                changeOrder={changeOrder}>
 
                 </LastOrderListItem>
             ))}

@@ -1,6 +1,6 @@
 import styles from "./LastOrderListItem.module.css"
 
-const LastOrderListItem = ({image, text, onMouseEnter, onMouseLeave}) => {
+const LastOrderListItem = ({image, text, onMouseEnter, onMouseLeave, changeOrder, id}) => {
     const preventDefaultActions = (event) => {
         event.preventDefault();
     };
@@ -11,7 +11,7 @@ const LastOrderListItem = ({image, text, onMouseEnter, onMouseLeave}) => {
     };
 
     return (
-        <div className={styles.pizzaCardContainer}
+        <div className={styles.pizzaCardContainer} onMouseLeave={onMouseLeave}
         >
                     <div className={styles.pizzaCardContainer__pizzaCard} 
                     onMouseDown={preventDefaultActions} 
@@ -22,8 +22,12 @@ const LastOrderListItem = ({image, text, onMouseEnter, onMouseLeave}) => {
                             alt="pizza"
                             className={styles.pizzaCardContainer__pizzaCard__image}
                             draggable="false"
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={onMouseLeave}
+                            onMouseEnter={(event)=>{
+                                handleMouseEnter(event);
+                                changeOrder(id);
+                            }}
+                            
+                            
                         />
                     </div>
                     <div className={styles.pizzaCardContainer__textContainer}
