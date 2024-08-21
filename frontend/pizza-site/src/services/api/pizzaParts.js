@@ -20,3 +20,26 @@ export const getPizzaPartsForBuiled = async () => {
 
     return result;
 }
+
+export const getPizzaWithImagesById = async (pizzaId) => {
+    try {
+        const response = await fetch(`${BASE_URL_API}/PizzaPiecesImages/${pizzaId}`);
+        
+        if (!response.ok) {
+            throw new Error(`Failed to fetch pizza data for ID: ${pizzaId}`);
+        }
+
+        const pizzaPiecesImages = await response.json();
+
+        const result = {
+            pizzaId: pizzaPiecesImages.pizza.id,
+            images: pizzaPiecesImages.piecesPath.map(imagePath => makeImagePath(imagePath, BASE_URL))
+        };
+
+        return result;
+
+    } catch (error) {
+        console.error("Error fetching pizza data:", error);
+        return null;
+    }
+}
