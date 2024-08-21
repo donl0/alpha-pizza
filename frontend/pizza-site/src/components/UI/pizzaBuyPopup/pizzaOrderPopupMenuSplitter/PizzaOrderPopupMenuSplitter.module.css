@@ -16,6 +16,9 @@
 
 .mainImage {
     height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .pizzaPopup__rightSideContainer{
