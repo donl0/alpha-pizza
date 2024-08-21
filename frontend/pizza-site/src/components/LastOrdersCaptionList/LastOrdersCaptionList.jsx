@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import OrangeCaption from "../UI/Caption/OrangeCaption"
 import LastOrdersList from "../UI/LastOrdersList/LastOrdersList";
 import styles from './LastOrdersCaptionList.module.css';
-import { getLastOrders } from "../../services/api/pizza";
+import { getLastOrders } from "../../services/api/order";
+import { parseOrders } from "../../services/parseOrders";
 
 const LastOrdersCaptionList = ({children}) => {
     useEffect( () => {
         const getOrders = async() => {
-            const orders = await getLastOrders();
+            const orders = parseOrders(await getLastOrders());
             setOrders(orders);
         };
 
