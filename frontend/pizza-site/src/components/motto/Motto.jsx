@@ -10,7 +10,7 @@ const Motto = () =>{
             
             <div className={styles.mottosContainer}>
             <span>Eat you want</span>
-            <span>Satisfy your most perverse tastes</span>
+            <span id="middleMotto">Satisfy your most perverse tastes</span>
             <span>Make our chevos suffer.</span>
             </div>
         </div>
