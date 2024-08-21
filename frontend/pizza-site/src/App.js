@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes,
   Route, } from "react-router-dom";
-import Header from "./components/UI/Header/Header";
+import Header from "./components/Header/Header";
 import './variables.css'
-import MainPage from "./components/UI/MainPage/MainPage";
+import MainPage from "./components/MainPage/MainPage";
 import Menu from "./components/menu/Menu";
 
 function App() {

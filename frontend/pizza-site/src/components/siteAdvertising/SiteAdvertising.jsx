@@ -2,7 +2,7 @@ import styles from './SiteAdvertising.module.css'
 
 import { useNavigate } from 'react-router-dom';
 
-import PinkFadeActionButton from '../Buttons/FadeActionButton/pinkFadeActionButton/PinkFadeActionButton';
+import PinkFadeActionButton from '../UI/Buttons/FadeActionButton/pinkFadeActionButton/PinkFadeActionButton';
 
 const SiteAdvertising = () => {
     const navigate = useNavigate();

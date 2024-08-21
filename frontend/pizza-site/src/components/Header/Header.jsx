@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import classes from './Header.module.css';
-import HideOnNewChoseLinks from "../HighlitedLinks/HideOnNewChoseLinks";
-import ActiveOnClickAndEnterHighlitedLinks from "../HighlitedLinks/ActiveOnClickAndEnterHighlitedLinks";
+import ActiveOnClickAndEnterHighlitedLinks from '../UI/HighlitedLinks/ActiveOnClickAndEnterHighlitedLinks'
 
 const showObjects = {
     "/page": "",
