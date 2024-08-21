@@ -3,7 +3,7 @@ import { getAllPizzas, getPizzaById } from "../../../services/api/pizza";
 import { parsePizza } from "../../../services/parsePizza";
 import { CurrentSizeContext, PriseContext, ToppingsContext } from "../../pizzaOrderPopup/PizzaOrderPopup";
 import OrderSideActorContainer from "../../UI/pizzaBuyPopup/orderSideActorContainer/OrderSideActorContainer";
-import SimpleImageBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/SimpleImageBlock";
+import SimpleImageBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/simpleImageBlock/SimpleImageBlock";
 import PizzaOrderPopupMenuSplitter from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/PizzaOrderPopupMenuSplitter";
 import PizzaInfoBlock from "../../UI/pizzaInfoBlock/PizzaInfoBlock";
 import style from "./DefaultOrderPizzaMenu.module.css"
