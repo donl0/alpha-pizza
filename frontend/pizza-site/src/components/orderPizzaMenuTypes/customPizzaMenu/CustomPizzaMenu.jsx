@@ -4,6 +4,7 @@ import PizzaOrderPopupMenuSplitter from "../../UI/pizzaBuyPopup/pizzaOrderPopupM
 import CustomPizzaPiecesListCalculator from "../../UI/pizzaBuyPopup/toppingsItemsCalculatorTypes/customPizzaPiecesListCalculator/CustomPizzaPiecesListCalculator";
 import { CurrentSizeContext, PriseContext, ToppingsCostContext } from "../../pizzaOrderPopup/PizzaOrderPopup";
 import { getSizePriceWhereSame } from "../../../utils/sizeWorker";
+import SimpleImageBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/SimpleImageBlock";
 
 export const PizzaPiecesPriseContext = createContext();
 
@@ -31,12 +32,12 @@ const CustomPizzaMenu = () => {
     }
 
     function onOrderButtonClicked(){
-
+        //TO DO
     }
 
     return (
         <PizzaPiecesPriseContext.Provider value={{piecesPrise, setPiecesPrise}}>
-            <PizzaOrderPopupMenuSplitter image={"/images/pizzas/custom_pizza.svg"}
+            <PizzaOrderPopupMenuSplitter ImageBlock={<SimpleImageBlock image={"/images/pizzas/custom_pizza.svg"}/>}
             orderMenuContent={<OrderSideActorContainer
                 sizeCosts={sizes}
                 costs={costs}

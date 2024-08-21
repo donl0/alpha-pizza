@@ -1,6 +1,6 @@
 import styles from "./PizzaOrderPopupMenuSplitter.module.css"
 
-const PizzaOrderPopupMenuSplitter = ({image, orderMenuContent}) => {
+const PizzaOrderPopupMenuSplitter = ({ImageBlock, orderMenuContent}) => {
     function stopNextPropagation(event){
         event.stopPropagation()   
     }
@@ -9,7 +9,7 @@ const PizzaOrderPopupMenuSplitter = ({image, orderMenuContent}) => {
         onClick={(event) => {stopNextPropagation(event)}}>
 
             <div className={styles.pizzaPopup__imageContainer}>
-                <img src={image} className={styles.mainImage}></img>
+                <div className={styles.mainImage}>{ImageBlock}</div>
             </div>
             <div className={styles.pizzaPopup__rightSideContainer}>
                 {orderMenuContent}

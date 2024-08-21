@@ -3,6 +3,7 @@ import { getAllPizzas, getPizzaById } from "../../../services/api/pizza";
 import { parsePizza } from "../../../services/parsePizza";
 import { CurrentSizeContext, PriseContext, ToppingsContext } from "../../pizzaOrderPopup/PizzaOrderPopup";
 import OrderSideActorContainer from "../../UI/pizzaBuyPopup/orderSideActorContainer/OrderSideActorContainer";
+import SimpleImageBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/SimpleImageBlock";
 import PizzaOrderPopupMenuSplitter from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/PizzaOrderPopupMenuSplitter";
 import PizzaInfoBlock from "../../UI/pizzaInfoBlock/PizzaInfoBlock";
 import style from "./DefaultOrderPizzaMenu.module.css"
@@ -88,7 +89,7 @@ const DefaultOrderPizzaMenu = ({pizzaId}) => {
         <div>
 
             <PizzaOrderPopupMenuSplitter
-            image={currentPizza["imagePath"]}
+            ImageBlock={<SimpleImageBlock image={currentPizza["imagePath"]}/>}
             orderMenuContent={<OrderSideActorContainer 
                 header={<PizzaInfoBlock name={currentPizza["name"]}
                                         consistOf={currentPizza["consistOf"]}
