@@ -1,3 +1,12 @@
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
 .pizzaPopup__background {
     background-color: #4e4e4e38;
     position: fixed;
@@ -9,8 +18,12 @@
     display: none;
     justify-content: center;
     align-items: center;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
 }
 
 .pizzaPopup__background.active{
     display:flex;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
 }
