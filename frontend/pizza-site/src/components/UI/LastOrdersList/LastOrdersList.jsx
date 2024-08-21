@@ -2,7 +2,7 @@ import LastOrderListItem from "./LastOrderListItem";
 import styles from "./LastOrdersList.module.css"
 import React, { useEffect, useRef } from "react";
 
-const LastOrdersList = ({pizzas}) => {
+const LastOrdersList = ({pizzas, onMouseEnter, onMouseLeave}) => {
     const containerRef = useRef(null);
 
     const handleWheel = (event) => {
@@ -39,6 +39,8 @@ const LastOrdersList = ({pizzas}) => {
         >
             {pizzas.map((pizza, index) => (
                 <LastOrderListItem key={index}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
                 image={pizza["pizza"]["imagePath"]}
                 text={pizza["pizza"]["name"]}>
 
