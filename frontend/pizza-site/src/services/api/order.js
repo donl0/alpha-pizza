@@ -26,3 +26,18 @@ export const getLastOrders = async () => {
     
     return parsed;
 }
+
+export const getOrderById = async (orderId) => {
+    const response = await fetch(`${BASE_URL_API}/Orders/${orderId}`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch order');
+    }
+    const order = await response.json();
+
+    for (let index = 0; index < order["toppings"].length; index++) {
+
+        order["toppings"][index]["topping"]["image"] = makeImagePath(order["toppings"][index]["topping"]["image"], BASE_URL);
+
+    }
+    return order;
+};
