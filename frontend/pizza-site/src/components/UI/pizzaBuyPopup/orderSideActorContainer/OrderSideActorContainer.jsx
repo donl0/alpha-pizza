@@ -16,8 +16,7 @@ const OrderSideActorContainer = ({ header, sizeCosts, costs, additionalToppingsC
             const minSize = getMinSizeFromPizzasSize();
             setCurrentSize(minSize);
         }
-    }, [sizeCosts]);
-
+    }, []);
 
     useEffect(() => {
         if (currentSize == undefined) {
