@@ -43,7 +43,13 @@ namespace PizzaService.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> Get(Guid id)
         {
-            Order order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+            Order order = await _context.Orders.Include(o => o.Pizza)
+             .ThenInclude(p => p.ConsistOf)
+         .Include(o => o.Pizza)
+             .ThenInclude(p => p.SizeCosts)
+         .Include(o => o.Toppings)
+             .ThenInclude(tc => tc.Topping)
+             .FirstOrDefaultAsync(o => o.Id == id);
 
             if (order != null)
             {
