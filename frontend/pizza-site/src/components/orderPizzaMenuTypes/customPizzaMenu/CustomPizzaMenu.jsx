@@ -5,6 +5,8 @@ import CustomPizzaPiecesListCalculator from "../../UI/pizzaBuyPopup/toppingsItem
 import { CurrentSizeContext, PriseContext, ToppingsCostContext } from "../../pizzaOrderPopup/PizzaOrderPopup";
 import { getSizePriceWhereSame } from "../../../utils/sizeWorker";
 import SimpleImageBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/simpleImageBlock/SimpleImageBlock";
+import SeveralPicturesAtOneBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/severalPicturesAtOneBlock/SeveralPicturesAtOneBlock";
+import CustomPizzaImageBlock from "../../buyPizzaPopup/customPizzaImageBlock/CustomPizzaImageBlock";
 
 export const PizzaPiecesPriseContext = createContext();
 
@@ -12,8 +14,10 @@ const CustomPizzaMenu = () => {
     const { currentSize, setCurrentSize } = useContext(CurrentSizeContext)
     const { currentToppingsCost, setCurrentToppingsCost } = useContext(ToppingsCostContext)
     const {finalPrise, setFinalPrise} = useContext(PriseContext);
+    const [selectedPiecesInPizzasId, setSelectedPiecesInPizzasId] = useState([]);
 
     const [piecesPrise, setPiecesPrise] = useState(0);
+
 
     const sizes = [15, 25, 35]
     const costs = [5, 8, 10]
@@ -37,12 +41,15 @@ const CustomPizzaMenu = () => {
 
     return (
         <PizzaPiecesPriseContext.Provider value={{piecesPrise, setPiecesPrise}}>
-            <PizzaOrderPopupMenuSplitter ImageBlock={<SimpleImageBlock image={"/images/pizzas/custom_pizza.svg"}/>}
+            <PizzaOrderPopupMenuSplitter ImageBlock={<CustomPizzaImageBlock pizzaIds={selectedPiecesInPizzasId}></CustomPizzaImageBlock>}
             orderMenuContent={<OrderSideActorContainer
                 sizeCosts={sizes}
                 costs={costs}
                 onOrderButtonClicked={onOrderButtonClicked}
-                additionalToppingsContent={<CustomPizzaPiecesListCalculator/>}
+                additionalToppingsContent={<CustomPizzaPiecesListCalculator 
+                    pieces={selectedPiecesInPizzasId}
+                    setPieces={setSelectedPiecesInPizzasId}
+            />}
                 >
                 
                 </OrderSideActorContainer>}>

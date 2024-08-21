@@ -3,71 +3,73 @@ import { getPizzaPartsForBuiled } from "../../../../../services/api/pizzaParts";
 import ToppingsList from "../../../../buyPizzaPopup/toppingsList/ToppingsList";
 import { PizzaPiecesPriseContext } from "../../../../orderPizzaMenuTypes/customPizzaMenu/CustomPizzaMenu";
 
-let pieces = [];
-
-const CustomPizzaPiecesListCalculator = () => {
+const CustomPizzaPiecesListCalculator = ({ pieces, setPieces }) => {
     const [toppings, setToppings] = useState([]);
-    const [selectedPieces, setSelectedPieces] = useState([]);
-    const {piecesPrise, setPiecesPrise} = useContext(PizzaPiecesPriseContext)
+
+    const { piecesPrise, setPiecesPrise } = useContext(PizzaPiecesPriseContext);
 
     const maxPieces = 8;
 
     useEffect(() => {
         const fetchToppings = async () => {
-            const topings = await getPizzaPartsForBuiled();
-            setToppings(topings);
+            const toppings = await getPizzaPartsForBuiled();
+            setToppings(toppings);
         };
 
         fetchToppings();
     }, []);
 
-    function addSelectedPiece(pizzaId){
+    function addSelectedPiece(pizzaId) {
         const countNonNull = pieces.filter(item => item !== null).length;
 
-        if (countNonNull > maxPieces -1) {
-            return false
+        if (countNonNull > maxPieces - 1) {
+            return false;
         }
 
         const nullIndex = pieces.indexOf(null);
 
         if (nullIndex !== -1) {
-            pieces[nullIndex] = pizzaId;
+            const newPieces = [...pieces];
+            newPieces[nullIndex] = pizzaId;
+            setPieces(newPieces);
             return true;
         }
 
         if (countNonNull < maxPieces) {
-            pieces.push(pizzaId);
+            const newPieces = [...pieces, pizzaId];
+            setPieces(newPieces);
             return true;
         }
 
-        return false
+        return false;
     }
 
-    function RemoveSelectedPiece(pizzaId){
+    function RemoveSelectedPiece(pizzaId) {
         const countNonNull = pieces.filter(item => item !== null).length;
 
         if (countNonNull !== 0) {
             const lastIndex = pieces.lastIndexOf(pizzaId);
 
             if (lastIndex !== -1) {
-                pieces[lastIndex] = null;
+                const newPieces = [...pieces];
+                newPieces[lastIndex] = null;
+                setPieces(newPieces);
                 return true;
             }
         }
 
-        return false
+        return false;
     }
 
     return (
-    <ToppingsList
-        currentCost={piecesPrise}
-        setCurrentCost={setPiecesPrise}
-        toppings={toppings}
-        addSelected={addSelectedPiece}
-        removeSelected={RemoveSelectedPiece}>
-
-    </ToppingsList>
-    )
-}
+        <ToppingsList
+            currentCost={piecesPrise}
+            setCurrentCost={setPiecesPrise}
+            toppings={toppings}
+            addSelected={addSelectedPiece}
+            removeSelected={RemoveSelectedPiece}
+        />
+    );
+};
 
 export default CustomPizzaPiecesListCalculator;
