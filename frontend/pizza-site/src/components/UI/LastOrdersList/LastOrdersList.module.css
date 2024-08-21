@@ -12,45 +12,10 @@
     
 }
 
-.pizzaCardContainer{
-    background-color: var(--primary-color);
-    border-radius: 5px;
-    min-height: 157px;
-    max-height: 157px;
-    min-width: 120px;
-    max-width: 120px;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: outline 1s;
-}
-
 .pizzaCardContainer:hover{
     outline: black solid 2px;
 }
 
 ::-webkit-scrollbar {
     display: none;
-}
-
-.pizzaCardContainer__pizzaCard{
-    margin: 6px;
-    height: 70%;
-    object-fit:contain;
-    background-color: rgb(245, 245, 245);
-    border-radius: 10px;
-
-    margin-bottom: 2px;
-}
-
-.pizzaCardContainer__pizzaCard__image{
-    padding: 2px;
-    object-fit:fill;
-    width: 100%;
-    height: 100%;
-}
-
-.pizzaCardContainer__textContainer{
-    text-align: center;
-    font-weight: 500;
-    color: white;
 }

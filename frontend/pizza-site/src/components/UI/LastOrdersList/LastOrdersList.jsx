@@ -1,3 +1,4 @@
+import LastOrderListItem from "./LastOrderListItem";
 import styles from "./LastOrdersList.module.css"
 import React, { useEffect, useRef } from "react";
 
@@ -37,25 +38,11 @@ const LastOrdersList = ({pizzas}) => {
             ref={containerRef}
         >
             {pizzas.map((pizza, index) => (
-                <div key={index} className={styles.pizzaCardContainer}>
-                    <div className={styles.pizzaCardContainer__pizzaCard} 
-                    onMouseDown={preventDefaultActions} 
-                    onDragStart={preventDefaultActions} 
-                    onContextMenu={preventDefaultActions}>
-                        <img
-                            src={pizza["pizza"]["imagePath"]}
-                            alt="pizza"
-                            className={styles.pizzaCardContainer__pizzaCard__image}
-                            draggable="false"
-                        />
-                    </div>
-                    <div className={styles.pizzaCardContainer__textContainer}
-                    onMouseDown={preventDefaultActions} 
-                    onDragStart={preventDefaultActions} 
-                    onContextMenu={preventDefaultActions}>
-                        <span>{pizza["pizza"]["name"]}</span>
-                    </div>
-                </div>
+                <LastOrderListItem key={index}
+                image={pizza["pizza"]["imagePath"]}
+                text={pizza["pizza"]["name"]}>
+
+                </LastOrderListItem>
             ))}
         </div>
     );
