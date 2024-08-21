@@ -6,7 +6,7 @@
 }
 
 .curentButton{
-    background-color: var(--primary-color);
+    background-color: #f1327e ;
     width: 160px;
     height: 44px;
     border-radius: 7px;
@@ -15,5 +15,9 @@
 }
 
 .curentButton:hover{
-    background-color: #f1327e;
+    background-color: var(--primary-color);
+}
+
+.curentButton:active{
+    background-color: #d60056;
 }

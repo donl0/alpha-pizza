@@ -26,7 +26,7 @@ const PizzaOrderPopup = ({ isActive, setPopupState, action, pizzaId }) => {
       <ToppingsCostContext.Provider value={{currentToppingsCost, setCurrentToppingsCost}}>
           <CustomPopup isActive={isActive} setPopupState={setPopupState}>
               {action === "default" ? (
-                <DefaultOrderPizzaMenu pizzaId={pizzaId} />
+                <DefaultOrderPizzaMenu pizzaId={pizzaId} setPopupState={setPopupState} />
               ) : action === "custom" ? (
                 <div><CustomPizzaMenu></CustomPizzaMenu></div>
               ) : null}
