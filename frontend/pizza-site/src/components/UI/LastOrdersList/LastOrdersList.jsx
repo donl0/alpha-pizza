@@ -37,8 +37,8 @@ const LastOrdersList = ({pizzas, onMouseEnter, onMouseLeave, changeOrder}) => {
             onWheel={handleWheel} 
             ref={containerRef}
         >
-            {pizzas.map((pizza, index) => (
-                <LastOrderListItem key={index}
+            {pizzas.map((pizza) => (
+                <LastOrderListItem key={pizza["id"]}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 image={pizza["pizza"]["imagePath"]}

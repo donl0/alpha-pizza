@@ -30,12 +30,14 @@ const LastOrdersCaptionList = ({children}) => {
     };
 
     useEffect( () => {
-        const getOrders = async() => {
+        const setInitOrders = async() => {
             const orders = parseOrders(await getLastOrders());
             setOrders(orders);
         };
 
-        getOrders();
+        setInitOrders();
+
+        setInterval(setInitOrders, 2000)
     }, [])
 
     const [orders, setOrders] = useState([]);
