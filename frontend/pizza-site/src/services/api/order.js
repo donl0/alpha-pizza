@@ -1,7 +1,5 @@
+import { BASE_URL, BASE_URL_API } from "../urls";
 import { makeImagePath } from "./makeImagePath";
-
-const BASE_URL = "https://localhost:7176/";
-const BASE_URL_API = BASE_URL+"api";
 
 export const createOrder = async (order) => {
     const response = await fetch(`${BASE_URL_API}/Orders`, {
@@ -18,6 +16,10 @@ export const createOrder = async (order) => {
 export const getLastOrders = async () => {
     const responce = await fetch(`${BASE_URL_API}/Orders`);
 
+    if (responce.status === 404) {
+        return []
+    }
+    
     let parsed = await responce.json();
 
     for (let index = 0; index < parsed.length; index++) {

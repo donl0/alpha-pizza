@@ -28,6 +28,11 @@ const Menu = () => {
     const [buyPizzaId, setbuyPizzaId] = useState(() => {
         const getFirstPizza = async() => {
             let pizzas = parsePizzasForMenu(await getAllPizzas());
+            
+            if (pizzas.length === 0) {
+                return {}
+            }
+
             return pizzas[0]["id"];
         };
 

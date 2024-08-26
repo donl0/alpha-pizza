@@ -1,6 +1,5 @@
 import { makeImagePath } from "./api/makeImagePath"
-
-const BASE_URL = "https://localhost:7176/";
+import { BASE_URL } from "./urls";
 
 export const parsePizza = (pizzas) => {
     for (let index = 0; index < pizzas.length; index++) {
@@ -21,6 +20,10 @@ export const parsePizza = (pizzas) => {
 }
 
 export const parsePizzasForMenu = (pizzas) => {
+    if (!pizzas) {
+        return pizzas;
+    }
+
     pizzas = parsePizza(pizzas)
 
     pizzas = pizzas.filter(pizza => pizza["imagePath"]);

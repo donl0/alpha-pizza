@@ -1,10 +1,14 @@
 import { makeImagePath } from "./makeImagePath";
 
-const BASE_URL = "https://localhost:7176/";
-const BASE_URL_API = BASE_URL+"api";
+import { BASE_URL, BASE_URL_API } from "../urls";
 
 export const getPizzaPartsForBuiled = async () => {
     const responce = await fetch(`${BASE_URL_API}/PizzaPiecesImages`);
+
+    if (responce.status === 404) {
+        return []
+    }
+    
     const pizzaPiecesImages = await responce.json();
 
     const result = pizzaPiecesImages.map(pizzaPieceImage => {
