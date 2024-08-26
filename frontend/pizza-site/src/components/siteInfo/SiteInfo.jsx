@@ -5,7 +5,7 @@ import styles from "./SiteInfo.module.css"
 const SiteInfo = () =>{
     const renderItemsFirstRow = [{
         imageParh: "/images/info/strange_pizza.jpg",
-        mainText: "Builed your own pizza",
+        mainText: "Build your own pizza",
         secondaryText: "You can choose ingridients you want. Over hundreds chevs hard working everyday prototyping new flavors."
     },
     {

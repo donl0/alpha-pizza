@@ -47,9 +47,9 @@ const Menu = () => {
             <PizzaGoodList pizzas={pizzas} onClick={handleOpenBuyPizzaMenu}>
             <PizzaGood
                         image={"/images/pizzas/custom_pizza.svg"} 
-                        name={"Builed your!"} 
+                        name={"Build your!"} 
                         price={"9"} 
-                        buttonCaption={"Builed"}
+                        buttonCaption={"Build"}
                         onClick={makeCustomOpenBuyPizzaMenu}
                         id={null}
                         ></PizzaGood>
