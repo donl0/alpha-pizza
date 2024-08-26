@@ -9,3 +9,5 @@ const SeveralPicturesAtOneBlock = ({images}) => {
         </div>
     )
 }
+
+export default SeveralPicturesAtOneBlock;
