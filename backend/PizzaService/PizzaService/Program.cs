@@ -1,4 +1,8 @@
+using Application.Interfaces;
 using Infrastructure;
+using Infrastructure.Db;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using PizzaService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,8 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddTransient<IImageSaver, ImageSaver>();
 
 var app = builder.Build();
+
+await app.Services.MakeMigrations();
 
 if (app.Environment.IsDevelopment())
 {
