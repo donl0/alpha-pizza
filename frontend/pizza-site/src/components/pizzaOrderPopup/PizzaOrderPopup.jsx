@@ -9,7 +9,7 @@ export const ToppingsContext = createContext();
 export const CurrentSizeContext = createContext();
 export const ToppingsCostContext = createContext();
 
-const PizzaOrderPopup = ({ isActive, setPopupState, action, pizzaId }) => {
+const PizzaOrderPopup = ({ isActive, setPopupState, action, pizzaId, onSuccessfulOrdered }) => {
   const [finalPrise, setFinalPrise] = useState(0);
   const [selectedToppings, setSelectedToppings ] = useState({});
   const [currentSize, setCurrentSize ] = useState();
@@ -26,9 +26,13 @@ const PizzaOrderPopup = ({ isActive, setPopupState, action, pizzaId }) => {
       <ToppingsCostContext.Provider value={{currentToppingsCost, setCurrentToppingsCost}}>
           <CustomPopup isActive={isActive} setPopupState={setPopupState}>
               {action === "default" ? (
-                <DefaultOrderPizzaMenu pizzaId={pizzaId} setPopupState={setPopupState} />
+                <DefaultOrderPizzaMenu pizzaId={pizzaId} 
+                setPopupState={setPopupState} 
+                onSuccessfulOrdered={onSuccessfulOrdered}/>
               ) : action === "custom" ? (
-                <div><CustomPizzaMenu></CustomPizzaMenu></div>
+                <div><CustomPizzaMenu
+                onSuccessfulOrdered={onSuccessfulOrdered}
+                setPopupState={setPopupState}></CustomPizzaMenu></div>
               ) : null}
             </CustomPopup>
           </ToppingsCostContext.Provider>

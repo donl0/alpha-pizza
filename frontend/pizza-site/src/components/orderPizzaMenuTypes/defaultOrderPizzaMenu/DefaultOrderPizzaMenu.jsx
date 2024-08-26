@@ -11,7 +11,7 @@ import { createContext, useContext, useEffect, useState } from "react"
 
 
 
-const DefaultOrderPizzaMenu = ({pizzaId, setPopupState}) => {
+const DefaultOrderPizzaMenu = ({pizzaId, setPopupState, onSuccessfulOrdered}) => {
     const {selectedToppings, setSelectedToppings} = useContext(ToppingsContext);
     const {finalPrise, setFinalPrise} = useContext(PriseContext);
     const {currentSize, setCurrentSize} = useContext(CurrentSizeContext)
@@ -57,7 +57,7 @@ const DefaultOrderPizzaMenu = ({pizzaId, setPopupState}) => {
             const response = await createOrder(body);
 
             if (response.ok) {
-                alert("success");
+                onSuccessfulOrdered();
                 console.log('Order placed successfully');
             } else {
                 const errorDetails = await response.text();

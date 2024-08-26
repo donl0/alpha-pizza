@@ -6,6 +6,9 @@ import PizzaGoodList from "../UI/pizzaGoodList/PizzaGoodList";
 import styles from './Menu.module.css';
 import React, { useEffect, useState } from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Menu = () => {
     useEffect( () => {
         const getPizzas = async() => {
@@ -42,6 +45,17 @@ const Menu = () => {
         setPopupState(true);
     };
 
+    const successfulOrdered = () => toast.success('🍕 Ordered successfully!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });;
+
     return (
         <div className={styles.container}>
             <PizzaGoodList pizzas={pizzas} onClick={handleOpenBuyPizzaMenu}>
@@ -59,7 +73,10 @@ const Menu = () => {
             isActive={isPopupActive} 
             setPopupState={setPopupState}
             action={currentAction}
-            pizzaId={buyPizzaId}></PizzaOrderPopup>    
+            pizzaId={buyPizzaId}
+            onSuccessfulOrdered={successfulOrdered}></PizzaOrderPopup>    
+            <ToastContainer />
+
         </div>
     )
 }

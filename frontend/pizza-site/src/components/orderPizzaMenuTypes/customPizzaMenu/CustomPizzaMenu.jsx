@@ -4,13 +4,11 @@ import PizzaOrderPopupMenuSplitter from "../../UI/pizzaBuyPopup/pizzaOrderPopupM
 import CustomPizzaPiecesListCalculator from "../../UI/pizzaBuyPopup/toppingsItemsCalculatorTypes/customPizzaPiecesListCalculator/CustomPizzaPiecesListCalculator";
 import { CurrentSizeContext, PriseContext, ToppingsCostContext } from "../../pizzaOrderPopup/PizzaOrderPopup";
 import { getSizePriceWhereSame } from "../../../utils/sizeWorker";
-import SimpleImageBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/simpleImageBlock/SimpleImageBlock";
-import SeveralPicturesAtOneBlock from "../../UI/pizzaBuyPopup/pizzaOrderPopupMenuSplitter/imagesBlockes/severalPicturesAtOneBlock/SeveralPicturesAtOneBlock";
 import CustomPizzaImageBlock from "../../buyPizzaPopup/customPizzaImageBlock/CustomPizzaImageBlock";
 
 export const PizzaPiecesPriseContext = createContext();
 
-const CustomPizzaMenu = () => {
+const CustomPizzaMenu = ({onSuccessfulOrdered, setPopupState}) => {
     const { currentSize, setCurrentSize } = useContext(CurrentSizeContext)
     const { currentToppingsCost, setCurrentToppingsCost } = useContext(ToppingsCostContext)
     const {finalPrise, setFinalPrise} = useContext(PriseContext);
@@ -36,7 +34,8 @@ const CustomPizzaMenu = () => {
     }
 
     function onOrderButtonClicked(){
-        //TO DO
+        onSuccessfulOrdered();
+        setPopupState(false);
     }
 
     return (
