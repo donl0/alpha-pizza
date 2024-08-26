@@ -20,6 +20,9 @@ frontend/*/yarn-debug.log*
 frontend/*/yarn-error.log*
 
 
+
+
+backend/PizzaService/Infrastructure/Migrations/*
 *.swp
 *.*~
 project.lock.json
