@@ -43,8 +43,10 @@ namespace PizzaService.Services
 
         private async Task<string> Save(IFormFile file)
         {
+            string imagePath = _config["StoredPizzaImagesPath"];
+
             var filePath = Path.Combine(
-                                _config["StoredPizzaImagesPath"],
+                                imagePath,
                                 Path.GetRandomFileName() +
                                 _fileExtension
                                 );
