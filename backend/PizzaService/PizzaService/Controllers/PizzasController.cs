@@ -67,17 +67,20 @@ namespace PizzaService.Controllers
 
         [HttpPost("updateImages")]
         public async Task<ActionResult<Guid>> Post([FromForm] Guid id, PizzaImagesUpdateDTO value) {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             try
             {
                 string fileExtension = ".png";
-
                 await _pizzaUpdateImageService.Update(id, new PizzaImageSaver(value, _config, fileExtension).Save);
             }
             catch (NotFoundException ex)
             {
                 return NotFound();
             }
-
 
             return Ok(id);
         }
