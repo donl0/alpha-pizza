@@ -119,10 +119,12 @@ namespace PizzaService.Controllers
             {
                 return NotFound();
             }
-
-            foreach (var item in order.Toppings)
+            if (order.Toppings != null)
             {
-                _context.ToppingsCount.Remove(item);
+                foreach (var item in order.Toppings)
+                {
+                    _context.ToppingsCount.Remove(item);
+                }
             }
 
             _context.Orders.Remove(order);
