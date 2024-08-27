@@ -18,8 +18,6 @@ builder.Services.AddTransient<IImageSaver, ImageSaver>();
 
 var app = builder.Build();
 
-await app.Services.MakeMigrations();
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
