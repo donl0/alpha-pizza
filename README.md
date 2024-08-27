@@ -1,8 +1,8 @@
 # Overview
-- General ![general](https://psv4.userapi.com/c909618/u123495018/docs/d46/8dd765e3e1b8/general_overview.gif?extra=eg5EXnUbg1XOPcQ20mCDy9r8xCorsx4v5-PWbzSHPA-6FnNNmLNHJOHFQ36HSUHvrVcOwpHHBmnXqtHS5HcvIhyYWeYVpI-alycsNrJCjjX8lsZvfFY91LStfXJxZIkEj6_j0Q6PUuq7aiciiZEFs7zQvtOF)
-- Order pizza with mixing size and toppings ![order](https://psv4.userapi.com/c909618/u123495018/docs/d6/b5baadbefed1/picking_pizza.gif?extra=iQbSoGKE2PO6HtUDuLKrBU0pafaO9eXObxLD2h4V2xJlRNl1_nL05m5Tz8dAD14AHXYKOaZK70UsjHDlJvxWsYofSvsvJaFBhos_kfqKlkVLpfco8PwzE1yswEHpZCxApkJTgBAlWfRkycyeQZ9skgkfHvwH)
-- See order history ![history](https://psv4.userapi.com/c909618/u123495018/docs/d56/522f051ae51a/waiting_pizza.gif?extra=UFOb0cuePhYct1yML6_jvyAKNoanwW0E-PkuIzzw5xPnFt25fazipzCrgcKUczfatvs-9pCKKAQ8EBnnWYtDfY38fTnpDB6SznLJ9QqDU3kcJq1j3biJE6OSrYNk7DR0PiX05uLmJT0Mh8EBiAtvwIqiAsh7)
-- Build your pizza ![your_own](https://psv4.userapi.com/c909618/u123495018/docs/d35/392ddbd9fa6d/build_yourself.gif?extra=V55J-nbfD7vF2UznHN7AQUzLrhO5_DydgIT84lnD0GyeyOD38-Rt2F4UuxnwAQ4dfBK99NfNTFDv4N2PhrQ07tYOH30SiuL0h_ANpdFZD95z0aPqjAYAyxFGd0ClGwgdPBm9VmJbZ53i4fQNGajteIEZXeVY)
+- General ![general](https://github.com/donl0/alpha-pizza/blob/readme-content/general_overview.gif)
+- Order pizza with mixing size and toppings ![order](https://github.com/donl0/alpha-pizza/blob/readme-content/picking_pizza.gif)
+- See order history ![history](https://github.com/donl0/alpha-pizza/blob/readme-content/waiting_pizza.gif)
+- Build your pizza ![your_own](https://github.com/donl0/alpha-pizza/blob/readme-content/build_yourself.gif)
 # Run
 ## Install
 Install [docker](https://docs.docker.com/engine/install/ubuntu/)
