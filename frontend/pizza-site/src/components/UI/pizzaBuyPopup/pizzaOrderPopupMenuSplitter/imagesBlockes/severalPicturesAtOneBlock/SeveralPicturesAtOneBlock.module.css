@@ -1,8 +1,0 @@
-.severalPictures__image{
-    position: absolute;
-    width: 350px;
-
-    top: calc( 50% - (350px/2));
-    left: calc( 50% - (350px/2));
-    
-}

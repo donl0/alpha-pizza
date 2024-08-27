@@ -1,9 +1,0 @@
-.pizzas__generalContainer{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.generalContainer__pizzaContainer{
-    margin-right: 3%;
-    margin-top: 10px;
-}
