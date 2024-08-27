@@ -1,8 +1,14 @@
-# Overview
-- General ![general](https://github.com/donl0/alpha-pizza/blob/readme-content/general_overview.gif)
-- Order pizza with mixing size and toppings ![order](https://github.com/donl0/alpha-pizza/blob/readme-content/picking_pizza.gif)
-- See order history ![history](https://github.com/donl0/alpha-pizza/blob/readme-content/waiting_pizza.gif)
-- Build your pizza ![your_own](https://github.com/donl0/alpha-pizza/blob/readme-content/build_yourself.gif)
+# Functionality show 
+
+- General
+  ![general](https://github.com/donl0/alpha-pizza/blob/readme-content/general_overview.gif)
+- Order pizza with mixing size and toppings
+  ![order](https://github.com/donl0/alpha-pizza/blob/readme-content/picking_pizza.gif)
+- See order history
+  ![history](https://github.com/donl0/alpha-pizza/blob/readme-content/waiting_pizza.gif)
+- Build your pizza
+  ![your_own](https://github.com/donl0/alpha-pizza/blob/readme-content/build_yourself.gif)
+
 # Run
 ## Install
 Install [docker](https://docs.docker.com/engine/install/ubuntu/)
@@ -12,19 +18,18 @@ Install [docker compose](https://docs.docker.com/compose/install/linux/)
 git clone https://github.com/donl0/alpha-pizza.git
 cd alpha-pizza
 
-# restore files
+# restore db
 mkdir -p /var/lib/docker/volumes && cp -r volumes/alpha-pizza_webapi-data /var/lib/docker/volumes
 tar -xzvf volumes/alpha-pizza_pgdata.tar.gz -C /var/lib/docker/volumes
 
 docker-compose up --build
 ```
 
-
-
 If run project in windows then not forget to change env variable to correct path.
 ```
 StoredPizzaImagesPath: "wwwroot\\images"
 ```
+
 ## Access
 
 Swagger http://localhost:8080/swagger/index.html
